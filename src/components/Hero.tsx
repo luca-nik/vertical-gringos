@@ -9,16 +9,25 @@ const Hero = () => {
     <section id="home" className="relative h-screen overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
-        <video
+        {/* Per ora usiamo un'immagine placeholder. Sostituisci con un video più piccolo (<100MB) */}
+        <div 
+          className="w-full h-full bg-gradient-to-br from-slate-grey via-midnight-blue to-slate-800 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Cg fill-opacity=\'0.1\'%3E%3Cpath d=\'M20 20L30 30M30 20L20 30M70 70L80 80M80 70L70 80M45 10L55 20M55 10L45 20M45 80L55 90M55 80L45 90M10 45L20 55M20 45L10 55M80 45L90 55M90 45L80 55\' stroke=\'%23f8fafc\' stroke-width=\'2\'/%3E%3C/g%3E%3C/svg%3E")'
+          }}
+        />
+        
+        {/* Commento: Aggiungi qui un video compresso <100MB quando disponibile */}
+        {/* <video
           className="w-full h-full object-cover"
           autoPlay
           loop
           muted
           playsInline
-          poster="/api/placeholder/1920/1080"
+          poster="/images/hero-poster.jpg"
         >
-          <source src="/videos/hero-mountain-aesthetic.mp4" type="video/mp4" />
-        </video>
+          <source src="/videos/hero-compressed.mp4" type="video/mp4" />
+        </video> */}
         
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-midnight-blue/30 via-transparent to-slate-grey/40" />
