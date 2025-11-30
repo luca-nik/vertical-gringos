@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vertical Gringos Landing Page
+
+Immersive, aesthetic landing page for Vertical Gringos - alpinists organizing electronic music events and selling clothing.
+
+## Design Philosophy
+
+**Aesthetic Alpinism & Good Vibes** - NOT aggressive extreme sports
+- Cinematic mountain landscapes
+- Slow-motion video backgrounds
+- Clean, modern typography
+- Deep nature tones (Slate Grey, Midnight Blue, Ice White)
+- Smooth, ease-out animations for relaxed premium feel
+
+## Tech Stack
+
+- **Next.js 16** (App Router)
+- **TypeScript**
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **Lucide React** for icons
+
+## Features
+
+### 🏔️ Hero Section
+- Full-screen cinematic video background
+- Elegant typography with flow-focused messaging
+- Smooth call-to-action buttons
+
+### 🎿 Events Section
+- Featured upcoming event (Ski and Sound - Winter Aesthetic)
+- Horizontal scroll gallery of past events
+- Event cards with hover interactions and image cross-fade
+- Based on existing Rossi Autumn Mix events
+
+### 👕 Brand Integration
+- Clean integration with GRINGO brand
+- "Gear for the aesthetic lifestyle" philosophy
+- Sustainable materials emphasis
+- Product grid with hover effects
+
+### 👥 About Section
+- Editorial layout with storytelling focus
+- Team profiles
+- Mission statement
+- Values highlighting community and respect for nature
+
+## Components
+
+- **Navbar**: Floating glass-morphism design
+- **EventCard**: Hover interactions with gallery cross-fade
+- **Hero**: Video background with elegant overlays
+- **BrandSection**: Product showcase with sustainability badges
+- **AboutSection**: Editorial layout with team profiles
+
+## Color Palette
+
+```css
+--slate-grey: #2c3e50;
+--midnight-blue: #1a252f; 
+--ice-white: #f8fafc;
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Design Inspiration
 
-To learn more about Next.js, take a look at the following resources:
+- Arc'teryx aesthetics (outdoor premium)
+- Salomon winter sports elegance  
+- Cercle Music event cinematics
+- Focus on natural beauty over aggressive sports imagery
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The landing page celebrates the community of "gringos" (respectful mountain visitors) who appreciate both the flow state of alpinism and the energy of electronic music in natural settings.
