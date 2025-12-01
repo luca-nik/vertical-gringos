@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import SkiSoundSection from '@/components/SkiSoundSection'
 import AboutSection from '@/components/AboutSection'
 import EventsSection from '@/components/EventsSection'
 import BrandSection from '@/components/BrandSection'
@@ -9,6 +10,7 @@ export default function Home() {
     <div className="bg-slate-grey">
       <Navbar />
       <Hero />
+      <SkiSoundSection />
       <AboutSection />
       <EventsSection />
       <BrandSection />

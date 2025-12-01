@@ -25,7 +25,6 @@ interface EventCardProps {
 
 const EventCard = ({ event, onClick }: EventCardProps) => {
   const [isHovered, setIsHovered] = useState(false)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const themeColors = {
     winter: {
@@ -54,14 +53,14 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      whileHover={{ scale: 1.02, y: -5 }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ scale: 1.05, y: -8 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onClick={onClick}
-      className={`relative rounded-3xl overflow-hidden cursor-pointer backdrop-blur-sm border ${theme.border} shadow-2xl h-96 group`}
+      className={`relative rounded-3xl overflow-hidden cursor-pointer backdrop-blur-md border ${theme.border} shadow-2xl h-80 md:h-96 group`}
     >
       {/* Background Image with Cross-fade */}
       <div className="absolute inset-0">
@@ -69,24 +68,19 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
           src={event.coverImage}
           alt={event.title}
           fill
-          className="object-cover transition-opacity duration-700"
-          style={{ opacity: !isHovered || !event.galleryImages ? 1 : 0 }}
+          className="object-cover transition-all duration-[2s] ease-out group-hover:scale-110"
+          style={{ opacity: !isHovered || !event.galleryImages ? 1 : 0.7 }}
         />
         
-        {/* Gallery images for hover */}
-        {event.galleryImages && isHovered && (
+        {/* Gallery image for hover - show first gallery image */}
+        {event.galleryImages && event.galleryImages[0] && isHovered && (
           <div className="absolute inset-0">
-            {event.galleryImages.map((image, index) => (
-              <Image
-                key={index}
-                src={image}
-                alt={`${event.title} gallery ${index + 1}`}
-                fill
-                className={`object-cover transition-opacity duration-700 ${
-                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-            ))}
+            <Image
+              src={event.galleryImages[0]}
+              alt={`${event.title} gallery`}
+              fill
+              className="object-cover transition-opacity duration-700 opacity-60"
+            />
           </div>
         )}
       </div>
@@ -95,55 +89,55 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
       <div className={`absolute inset-0 bg-gradient-to-t ${theme.gradient} group-hover:opacity-90 transition-opacity duration-300`} />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-between p-6">
+      <div className="relative z-10 h-full flex flex-col justify-between p-4 md:p-6">
         {/* Header */}
         <div>
-          <div className="flex items-center justify-between mb-3">
-            <span className={`text-sm font-medium ${theme.accent} tracking-wide uppercase`}>
+          <div className="flex items-center justify-between mb-2 md:mb-3">
+            <span className={`text-xs md:text-sm font-medium ${theme.accent} tracking-wide uppercase`}>
               {event.type === 'upcoming' ? 'Prossimo Evento' : 'Evento Passato'}
             </span>
             {event.type === 'upcoming' && (
-              <div className="flex items-center space-x-1 bg-ice-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <div className="flex items-center space-x-1 bg-ice-white/20 backdrop-blur-sm px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
+                <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-green-400 rounded-full animate-pulse" />
                 <span className="text-ice-white text-xs font-medium">Live</span>
               </div>
             )}
           </div>
 
-          <h3 className="text-2xl font-light text-ice-white mb-2 leading-tight">
+          <h3 className="text-xl md:text-2xl font-light text-ice-white mb-1.5 md:mb-2 leading-tight">
             {event.title}
           </h3>
           
           {event.subtitle && (
-            <p className="text-ice-white/80 text-sm font-light mb-3">
+            <p className="text-ice-white/80 text-xs md:text-sm font-light mb-2 md:mb-3">
               {event.subtitle}
             </p>
           )}
         </div>
 
         {/* Event Details */}
-        <div className="space-y-2">
-          <div className="flex items-center space-x-2 text-ice-white/80">
-            <Calendar className="h-4 w-4" />
-            <span className="text-sm">{event.date}</span>
+        <div className="space-y-1.5 md:space-y-2">
+          <div className="flex items-center space-x-1.5 md:space-x-2 text-ice-white/80">
+            <Calendar className="h-3.5 md:h-4 w-3.5 md:w-4" />
+            <span className="text-xs md:text-sm">{event.date}</span>
           </div>
           
-          <div className="flex items-center space-x-2 text-ice-white/80">
-            <MapPin className="h-4 w-4" />
-            <span className="text-sm">{event.location}</span>
+          <div className="flex items-center space-x-1.5 md:space-x-2 text-ice-white/80">
+            <MapPin className="h-3.5 md:h-4 w-3.5 md:w-4" />
+            <span className="text-xs md:text-sm">{event.location}</span>
           </div>
 
           {event.attendees && (
-            <div className="flex items-center space-x-2 text-ice-white/80">
-              <Users className="h-4 w-4" />
-              <span className="text-sm">{event.attendees} partecipanti</span>
+            <div className="flex items-center space-x-1.5 md:space-x-2 text-ice-white/80">
+              <Users className="h-3.5 md:h-4 w-3.5 md:w-4" />
+              <span className="text-xs md:text-sm">{event.attendees} partecipanti</span>
             </div>
           )}
 
           {event.lineup && event.lineup.length > 0 && (
-            <div className="flex items-center space-x-2 text-ice-white/80">
-              <Music className="h-4 w-4" />
-              <span className="text-sm">{event.lineup[0]}{event.lineup.length > 1 && ' +' + (event.lineup.length - 1)}</span>
+            <div className="flex items-center space-x-1.5 md:space-x-2 text-ice-white/80">
+              <Music className="h-3.5 md:h-4 w-3.5 md:w-4" />
+              <span className="text-xs md:text-sm">{event.lineup[0]}{event.lineup.length > 1 && ' +' + (event.lineup.length - 1)}</span>
             </div>
           )}
         </div>
@@ -153,10 +147,10 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="absolute inset-x-6 bottom-6"
+          className="absolute inset-x-4 md:inset-x-6 bottom-4 md:bottom-6"
         >
-          <button className="w-full py-3 bg-ice-white/20 backdrop-blur-sm border border-ice-white/30 rounded-full text-ice-white hover:bg-ice-white/30 transition-all duration-300 text-sm font-medium">
-            {event.type === 'upcoming' ? 'Scopri Dettagli' : 'Rivedi Recap'}
+          <button className="w-full py-2 md:py-3 bg-ice-white/20 backdrop-blur-sm border border-ice-white/30 rounded-full text-ice-white hover:bg-ice-white/30 transition-all duration-300 text-xs md:text-sm font-medium">
+            {event.type === 'upcoming' ? 'Scopri' : 'Recap'}
           </button>
         </motion.div>
       </div>
