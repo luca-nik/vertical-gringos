@@ -69,12 +69,11 @@ const Hero = () => {
           className="max-w-6xl flex flex-col items-center"
         >
           {/* Logo with Float Animation */}
-          <motion.div 
+          <motion.div
             className="mb-8 md:mb-10 lg:mb-12 flex justify-center items-center"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
-            {/* Assicurati che il file esista in /public/images/ */}
             <Image
               src="/images/vertical-logo.png"
               alt="Vertical Gringos"
@@ -84,7 +83,7 @@ const Hero = () => {
               priority
             />
           </motion.div>
-          
+
           {/* Editorial Tagline */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
