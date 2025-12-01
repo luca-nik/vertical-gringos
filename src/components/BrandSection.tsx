@@ -42,7 +42,8 @@ const BrandSection = () => {
 
   return (
     <section id="brand" className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-midnight-blue to-slate-grey">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div className="w-full flex justify-center">
+        <div className="max-w-7xl w-full px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -194,6 +195,7 @@ const BrandSection = () => {
             <ExternalLink className="h-4 md:h-5 w-4 md:w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </motion.div>
+        </div>
       </div>
     </section>
   )

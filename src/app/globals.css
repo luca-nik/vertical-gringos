@@ -9,8 +9,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Inter', var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Menlo', 'Monaco', monospace;
 }
 
 * {
@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 body {
@@ -29,7 +30,8 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 300;
   line-height: 1.6;
-  overflow-x: hidden;
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* Custom scrollbar */

@@ -29,13 +29,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Use webpack by default, better Tailwind support
-  webpack: (config: any) => {
-    config.watchOptions = {
-      poll: 1000,
-      aggregateTimeout: 300,
-    };
-    return config;
+  // Explicitly set the Turbopack root to avoid Next.js root inference warnings
+  turbopack: {
+    root: __dirname,
   },
 };
 

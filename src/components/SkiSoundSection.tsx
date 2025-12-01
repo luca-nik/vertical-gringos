@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Calendar, MapPin, Users, Snowflake } from 'lucide-react'
+import { Calendar, MapPin, Snowflake } from 'lucide-react'
 import Image from 'next/image'
 import { useRef } from 'react'
 
@@ -55,14 +55,15 @@ const SkiSoundSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"])
 
   return (
-    <section ref={ref} className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-br from-ice-white via-ice-blue to-winter-silver overflow-hidden">
+    <section ref={ref} className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-br from-ice-white via-ice-blue to-winter-silver overflow-hidden w-full">
       {/* Snow Particles VFX */}
       <SnowParticles />
       
       {/* Cold Mist Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-blue-50/30 via-transparent to-blue-100/20" />
       
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="w-full flex justify-center relative z-10">
+        <div className="max-w-7xl w-full px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,13 +79,9 @@ const SkiSoundSection = () => {
             <Snowflake className="h-10 md:h-12 w-10 md:w-12 text-blue-400/60" />
           </motion.div>
           
-          <h2 className="font-display text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-light text-slate-900 mb-4 md:mb-6 tracking-widest uppercase">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-light text-slate-900 mb-4 md:mb-6 tracking-widest uppercase text-center">
             Prossimo Evento
           </h2>
-          <div className="w-24 md:w-32 h-px bg-slate-400/50 mx-auto mb-6 md:mb-8"></div>
-          <p className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-            L&apos;unico evento in Toscana che unisce sci freestyle e musica elettronica.
-          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
@@ -103,7 +100,7 @@ const SkiSoundSection = () => {
               <p className="text-lg md:text-xl text-blue-600 font-medium mb-4 md:mb-6">Ski Freestyle & Techno</p>
             </div>
 
-            <div className="space-y-4 md:space-y-6 space-x-6 md:space-x-8">
+            <div className="space-y-4 md:space-y-6">
               <div className="flex items-center space-x-3 md:space-x-4 text-slate-700">
                 <Calendar className="h-5 md:h-6 w-5 md:w-6 text-blue-500" />
                 <span className="text-base md:text-lg text-blue-300"> 7 Dicember 2025</span>
@@ -183,6 +180,7 @@ const SkiSoundSection = () => {
               <Snowflake className="w-full h-full" />
             </motion.div>
           </motion.div>
+        </div>
         </div>
       </div>
     </section>

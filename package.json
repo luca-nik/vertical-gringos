@@ -1,11 +1,11 @@
 {
-  "name": "vertical-gringos-landing",
+  "name": "vertical-gringos",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build --webpack",
+    "start": "next start --webpack",
     "lint": "eslint"
   },
   "dependencies": {

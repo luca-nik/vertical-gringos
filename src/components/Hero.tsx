@@ -41,11 +41,11 @@ const Hero = () => {
           muted
           playsInline
           preload="metadata"
-          onLoadedData={(e) => {
+          onLoadedData={() => {
             console.log('Video loaded successfully')
           }}
-          onError={(e) => {
-            console.error('Video error:', e)
+          onError={() => {
+            console.error('Video error')
           }}
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
