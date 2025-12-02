@@ -63,23 +63,23 @@ const SkiSoundSection = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-blue-50/30 via-transparent to-blue-100/20" />
       
       <div className="w-full flex justify-center relative z-10">
-        <div className="max-w-7xl w-full px-4 md:px-6 lg:px-8">
+        <div className="max-w-7xl w-full px-6 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16 lg:mb-20"
+          className="text-center !mb-12 md:!mb-16 lg:!mb-20"
         >
           <motion.div
             animate={{ rotate: [0, 360] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="inline-block mb-4 md:mb-6"
+            className="inline-block !mb-4 md:!mb-6"
           >
             <Snowflake className="h-10 md:h-12 w-10 md:w-12 text-blue-400/60" />
           </motion.div>
           
-          <h2 className="font-display text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-light text-slate-900 mb-4 md:mb-6 tracking-widest uppercase text-center">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-light text-slate-900 !mb-4 md:!mb-6 tracking-widest uppercase text-center">
             Prossimo Evento
           </h2>
         </motion.div>
@@ -94,16 +94,16 @@ const SkiSoundSection = () => {
             className="space-y-6 md:space-y-8"
           >
             <div>
-              <h3 className="font-display text-2xl md:text-4xl lg:text-5xl font-light text-slate-400 mb-3 md:mb-4 tracking-widest uppercase">
+              <h3 className="font-display text-2xl md:text-4xl lg:text-5xl font-light text-slate-400 !mb-3 md:!mb-4 tracking-widest uppercase">
                 Ski & Sound
               </h3>
-              <p className="text-lg md:text-xl text-blue-600 font-medium mb-4 md:mb-6">Ski Freestyle & Techno</p>
+              <p className="text-lg md:text-xl text-blue-600 font-medium !mb-4 md:!mb-6">Ski Freestyle & Techno</p>
             </div>
 
             <div className="space-y-4 md:space-y-6">
               <div className="flex items-center space-x-3 md:space-x-4 text-slate-700">
                 <Calendar className="h-5 md:h-6 w-5 md:w-6 text-blue-500" />
-                <span className="text-base md:text-lg text-blue-300"> 7 Dicember 2025</span>
+                <span className="text-base md:text-lg text-blue-300"> 7 Dicembere 2025</span>
               </div>
 
               <div className="flex items-center space-x-3 md:space-x-4 text-slate-700">
@@ -113,13 +113,13 @@ const SkiSoundSection = () => {
             </div>
 
             <div className="pt-8 md:pt-12">
-              <div className="w-24 md:w-32 h-px bg-slate-400/50 mx-auto mb-6 md:mb-8"></div>
+              <div className="w-24 md:w-32 h-px bg-slate-400/50 mx-auto !mb-6 md:!mb-8"></div>
               <p className="text-base md:text-lg text-slate-100 max-w-2xl mx-auto font-light leading-relaxed">
                 L&apos;unico evento in Toscana che unisce sci freestyle e musica elettronica.
               </p>
             </div>
 
-            <div className="flex justify-center pt-10 md:pt-14">
+            <div className="flex justify-center pt-10 md:pt-14 !mt-8">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}

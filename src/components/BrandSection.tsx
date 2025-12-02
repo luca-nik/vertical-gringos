@@ -43,17 +43,17 @@ const BrandSection = () => {
   return (
     <section id="brand" className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-midnight-blue to-slate-grey">
       <div className="w-full flex justify-center">
-        <div className="max-w-7xl w-full px-4 md:px-6 lg:px-8">
+        <div className="max-w-7xl w-full px-6 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center !mb-12 md:!mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white mb-4 md:mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white !mb-4 md:!mb-6 tracking-tight">
             GRINGO Brand
           </h2>
-          <p className="text-lg md:text-xl text-ice-white/80 max-w-3xl mx-auto font-light leading-relaxed mb-6 md:mb-8">
+          <p className="text-lg md:text-xl text-ice-white/80 max-w-3xl mx-auto font-light leading-relaxed !mb-6 md:!mb-8">
             Gear per lo stile di vita aesthetic. Ogni capo è un segno di appartenenza 
             alla comunità degli esploratori rispettosi.
           </p>
@@ -79,15 +79,15 @@ const BrandSection = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="mb-12 md:mb-16 lg:mb-20"
+          className="!mb-12 md:!mb-16 lg:!mb-20"
         >
           <div className="max-w-4xl mx-auto bg-slate-800/20 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-8 lg:p-12">
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
               <div>
-                <h3 className="text-xl md:text-2xl font-light text-ice-white mb-3 md:mb-4">
+                <h3 className="text-xl md:text-2xl font-light text-ice-white !mb-3 md:!mb-4">
                   Somos todos gringos.
                 </h3>
-                <p className="text-sm md:text-base text-ice-white/80 font-light leading-relaxed mb-4 md:mb-6">
+                <p className="text-sm md:text-base text-ice-white/80 font-light leading-relaxed !mb-4 md:!mb-6">
                   Il gracchio alpino ci osserva mentre saliamo, come a salutarci. 
                   Ci siamo immaginati GRINGO come il nome che lui ci affibbia: 
                   <em className="text-ice-white"> gringo</em>, lo straniero.
@@ -115,9 +115,9 @@ const BrandSection = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          className="mb-12 md:mb-16"
+          className="!mb-12 md:!mb-16"
         >
-          <h3 className="text-2xl md:text-3xl font-light text-ice-white text-center mb-8 md:mb-12">
+          <h3 className="text-2xl md:text-3xl font-light text-ice-white text-center !mb-8 md:!mb-12">
             Gear for the Aesthetic Lifestyle
           </h3>
           
@@ -131,7 +131,7 @@ const BrandSection = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="group cursor-pointer"
               >
-                <div className="relative overflow-hidden rounded-2xl mb-3 md:mb-4 bg-slate-800/20 backdrop-blur-sm border border-white/10">
+                <div className="relative overflow-hidden rounded-2xl !mb-3 md:!mb-4 bg-slate-800/20 backdrop-blur-sm border border-white/10">
                   <div className="relative h-64 md:h-80">
                     <Image
                       src={product.image}

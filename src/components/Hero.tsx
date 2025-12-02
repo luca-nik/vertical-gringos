@@ -61,7 +61,7 @@ const Hero = () => {
       </motion.div>
 
       {/* --- Floating Content --- */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 md:px-6 lg:px-8 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 md:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ const Hero = () => {
         >
           {/* Logo with Float Animation */}
           <motion.div
-            className="mb-8 md:mb-10 lg:mb-12 flex justify-center items-center"
+            className="!mb-8 md:!mb-10 lg:!mb-4 flex justify-center items-center"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -89,11 +89,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
-            className="font-display text-4xl md:text-6xl lg:text-8xl font-medium text-[#F6B21A] mb-6 md:mb-8 lg:mb-10 tracking-widest uppercase leading-tight drop-shadow-xl"
+            className="font-display text-4xl md:text-6xl lg:text-8xl font-medium text-[#F6B21A] !mb-5 md:!mb-7 lg:!mb-8 tracking-widest uppercase leading-tight drop-shadow-xl"
           >
             CHASING HIGHS
             <br />
-            <span className="text-ice-white/60 font-light block mt-2">
+            <span className="text-ice-white/60 font-light block !mt-2">
               SHARED VIBES
             </span>
           </motion.h1>
@@ -102,7 +102,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
-            className="text-lg md:text-2xl text-[#F6B21A] mb-6 md:mb-8 lg:mb-10 font-light tracking-wide max-w-xl mx-auto"
+            className="text-lg md:text-2xl text-[#F6B21A] !mb-6 md:!mb-8 lg:!mb-4 font-light tracking-wide max-w-xl mx-auto"
           >
             The collective for those who breathe the outdoors 
             <span className="hidden md:inline">  </span> 
@@ -110,13 +110,13 @@ const Hero = () => {
             and live the electronic vibe.
           </motion.p>
 
-          <div className="h-8 w-full" />
+          <div className="h-10 lg:!h-2 w-full" />
           {/* Magnetic Buttons Container */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 1.6 }}
-            className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center mt-8 md:mt-10 lg:mt-12 w-full"
+            className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center !mt-8 md:!mt-10 lg:!mt-2 w-full"
           >
             {/* Button 1: Prossimo Evento */}
             <motion.a

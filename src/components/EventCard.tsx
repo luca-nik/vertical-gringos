@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Calendar, MapPin } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface EventCardProps {
   event: {
@@ -22,6 +22,19 @@ interface EventCardProps {
 
 const EventCard = ({ event, onClick }: EventCardProps) => {
   const [isHovered, setIsHovered] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  // Auto-rotate gallery images every 2 seconds
+  useEffect(() => {
+    if (event.galleryImages && event.galleryImages.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex(prev => 
+          prev === event.galleryImages!.length - 1 ? 0 : prev + 1
+        )
+      }, 2000)
+      return () => clearInterval(interval)
+    }
+  }, [event.galleryImages])
 
   const themeColors = {
     winter: {
@@ -69,27 +82,28 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
           style={{ opacity: !isHovered || !event.galleryImages ? 1 : 0.7 }}
         />
         
-        {/* Gallery image for hover - show first gallery image */}
-        {event.galleryImages && event.galleryImages[0] && isHovered && (
+        {/* Gallery image rotation - auto-rotating images */}
+        {event.galleryImages && event.galleryImages.length > 0 && (
           <div className="absolute inset-0">
             <Image
-              src={event.galleryImages[0]}
-              alt={`${event.title} gallery`}
+              key={currentImageIndex}
+              src={event.galleryImages[currentImageIndex]}
+              alt={`${event.title} gallery ${currentImageIndex + 1}`}
               fill
-              className="object-cover transition-opacity duration-700 opacity-60"
+              className="object-cover transition-opacity duration-1000 opacity-70"
             />
           </div>
         )}
       </div>
 
       {/* Overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-t ${theme.gradient} group-hover:opacity-90 transition-opacity duration-300`} />
+      <div className={`absolute inset-0 bg-gradient-to-t ${event.type === 'past' ? 'from-gray-900/30 via-gray-800/20 to-transparent' : 'from-slate-900/40 via-transparent to-transparent'} group-hover:opacity-90 transition-opacity duration-300`} />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-between p-4 md:p-6">
+      <div className="relative z-10 h-full flex flex-col justify-between !p-6 md:!p-8">
         {/* Header */}
         <div>
-          <div className="flex items-center justify-between mb-2 md:mb-3">
+          <div className="flex items-center justify-between !mb-2 md:!mb-3">
             <span className={`text-xs md:text-sm font-medium ${theme.accent} tracking-wide uppercase`}>
               {event.type === 'upcoming' ? 'Prossimo Evento' : 'Evento Passato'}
             </span>
@@ -101,12 +115,12 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
             )}
           </div>
 
-          <h3 className="text-xl md:text-2xl font-light text-ice-white mb-1.5 md:mb-2 leading-tight">
+          <h3 className="text-xl md:text-2xl font-light text-ice-white !mb-1.5 md:!mb-2 leading-tight">
             {event.title}
           </h3>
           
           {event.subtitle && (
-            <p className="text-ice-white/80 text-xs md:text-sm font-light mb-2 md:mb-3">
+            <p className="text-ice-white/80 text-xs md:text-sm font-light !mb-2 md:!mb-3">
               {event.subtitle}
             </p>
           )}
@@ -130,7 +144,7 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="absolute inset-x-4 md:inset-x-6 bottom-4 md:bottom-6"
+          className="absolute !inset-x-6 md:!inset-x-8 !bottom-4 md:!bottom-5"
         >
           <button className="w-full py-2 md:py-3 bg-ice-white/20 backdrop-blur-sm border border-ice-white/30 rounded-full text-ice-white hover:bg-ice-white/30 transition-all duration-300 text-xs md:text-sm font-medium">
             {event.type === 'upcoming' ? 'Scopri' : 'Recap'}
