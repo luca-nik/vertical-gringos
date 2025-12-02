@@ -80,7 +80,7 @@ const Hero = () => {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
             className="font-display text-4xl md:text-6xl lg:text-8xl font-medium text-[#F6B21A] !mb-5 md:!mb-7 lg:!mb-8 tracking-widest uppercase leading-tight drop-shadow-xl"
           >
-            AESTETIC ALPINISM
+            AESTHETIC ALPINISM
             <br />
             <span className="text-ice-white/60 font-light block !mt-2">
             MEETS ELECTRONIC MUSIC
