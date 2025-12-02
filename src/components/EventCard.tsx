@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, MapPin, Users, Music } from 'lucide-react'
+import { Calendar, MapPin } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -123,20 +123,6 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
             <MapPin className="h-3.5 md:h-4 w-3.5 md:w-4" />
             <span className="text-xs md:text-sm">{event.location}</span>
           </div>
-
-          {event.attendees && (
-            <div className="flex items-center space-x-1.5 md:space-x-2 text-ice-white/80">
-              <Users className="h-3.5 md:h-4 w-3.5 md:w-4" />
-              <span className="text-xs md:text-sm">{event.attendees} partecipanti</span>
-            </div>
-          )}
-
-          {event.lineup && event.lineup.length > 0 && (
-            <div className="flex items-center space-x-1.5 md:space-x-2 text-ice-white/80">
-              <Music className="h-3.5 md:h-4 w-3.5 md:w-4" />
-              <span className="text-xs md:text-sm">{event.lineup[0]}{event.lineup.length > 1 && ' +' + (event.lineup.length - 1)}</span>
-            </div>
-          )}
         </div>
 
         {/* Hover Action */}
