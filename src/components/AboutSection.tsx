@@ -44,9 +44,9 @@ const AboutSection = () => {
   ]
 
   return (
-    <section id="chi-siamo" className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-slate-grey to-midnight-blue w-full">
+    <section id="chi-siamo" className="!py-16 md:py-16 lg:py-20 bg-gradient-to-b from-slate-grey to-midnight-blue w-full">
       <div className="w-full flex justify-center">
-        <div className="max-w-7xl w-full px-6 md:px-6 lg:px-8">
+        <div className="max-w-7xl w-full !px-8 md:px-6 lg:px-8">
         {/* Main Story */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -140,9 +140,9 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          className="!mb-20 md:!mb-24 lg:!mb-32"
+          className="!mb-12 md:!mb-16 lg:!mb-20"
         >
-          <h3 className="text-2xl md:text-3xl font-light text-ice-white text-center !mb-16 md:!mb-20 lg:!mb-24">
+          <h3 className="text-2xl md:text-3xl font-light text-ice-white text-center !mb-6 md:!mb-6 lg:!mb-10">
             Chi siamo
           </h3>
           
@@ -188,7 +188,7 @@ const AboutSection = () => {
           className="text-center flex justify-center"
         >
           <div className="max-w-4xl w-full bg-slate-800/20 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-8 lg:p-12">
-            <h3 className="text-3xl md:text-4xl font-light text-ice-white !mb-10 md:!mb-8 tracking-tight">
+            <h3 className="text-3xl md:text-4xl font-light text-ice-white !mb-3 md:!mb-3 tracking-tight">
               La nostra missione
             </h3>
             

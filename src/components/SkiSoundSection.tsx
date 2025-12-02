@@ -63,7 +63,7 @@ const SkiSoundSection = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-blue-50/30 via-transparent to-blue-100/20" />
       
       <div className="w-full flex justify-center relative z-10">
-        <div className="max-w-7xl w-full px-6 md:px-6 lg:px-8">
+        <div className="max-w-7xl w-full !px-8 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}

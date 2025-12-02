@@ -64,15 +64,15 @@ const EventsSection = () => {
     <section id="eventi" className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-slate-grey via-midnight-blue to-slate-800 relative overflow-hidden">
       <div className="absolute inset-0 radial-glow opacity-30" />
       <div className="w-full flex justify-center relative z-10">
-        <div className="max-w-7xl w-full px-6 md:px-6 lg:px-8">
+        <div className="max-w-7xl w-full !px-8 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="text-center !mb-16 md:!mb-20 lg:!mb-24 flex flex-col items-center"
+          className="text-center !mb-16 md:!mb-20 lg:!mb-24 flex flex-col items-center !mt-20"
         >
-          <h2 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-light text-ice-white !mb-6 md:!mb-8 tracking-widest uppercase text-center">
+          <h2 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-light text-ice-white !mb-1 md:!mb-1 tracking-widest uppercase text-center">
             Eventi
           </h2>
           <div className="w-24 md:w-32 h-px bg-ice-white/30 !mb-6 md:!mb-8"></div>
