@@ -188,7 +188,7 @@ const AboutSection = () => {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
           className="text-center flex justify-center"
         >
-          <div className="max-w-4xl w-full bg-slate-800/20 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-8 lg:p-12">
+          <div className="max-w-4xl w-full bg-slate-700/30 backdrop-blur-md border border-white/10 rounded-3xl !p-7 md:!p-8 lg:!p-12">
             <h3 className="text-3xl md:text-4xl font-light text-ice-white !mb-3 md:!mb-3 tracking-tight">
               La nostra missione
             </h3>

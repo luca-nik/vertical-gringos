@@ -110,17 +110,12 @@ const EventsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="text-center !mb-16 md:!mb-20 lg:!mb-24 flex flex-col items-center !mt-20"
+          className="text-center !mb-10 md:!mb-14 lg:!mb-16 flex flex-col items-center !mt-20"
         >
           <h2 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-light text-ice-white !mb-1 md:!mb-1 tracking-widest uppercase text-center">
             Eventi
           </h2>
           <div className="w-24 md:w-32 h-px bg-ice-white/30 !mb-6 md:!mb-8"></div>
-          <div className="flex justify-center w-full">
-            <p className="text-lg md:text-xl text-ice-white/80 max-w-2xl font-light leading-relaxed text-center">
-            Momenti unici che uniscono outdoor, musica e community. Ogni evento è un&apos;esperienza da vivere insieme.
-            </p>
-          </div>
         </motion.div>
 
         {/* Featured Event - Next Upcoming */}
