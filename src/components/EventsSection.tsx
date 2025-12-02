@@ -9,20 +9,32 @@ const EventsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  // Track scroll position for dots indicator
+  // Track scroll position for dots indicator (nearest card to center)
   useEffect(() => {
     const handleScroll = () => {
-      if (scrollRef.current) {
-        const scrollLeft = scrollRef.current.scrollLeft
-        const cardWidth = 288 + 24 // w-72 + mr-6
-        const newIndex = Math.round(scrollLeft / cardWidth)
-        setActiveIndex(newIndex)
+      const container = scrollRef.current
+      if (container) {
+        const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
+        if (cards.length === 0) return
+        const viewportCenter = container.scrollLeft + container.clientWidth / 2
+        let nearestIndex = 0
+        let minDistance = Number.MAX_VALUE
+        cards.forEach((card, idx) => {
+          const center = card.offsetLeft + card.offsetWidth / 2
+          const distance = Math.abs(center - viewportCenter)
+          if (distance < minDistance) {
+            minDistance = distance
+            nearestIndex = idx
+          }
+        })
+        setActiveIndex(nearestIndex)
       }
     }
 
     const scrollElement = scrollRef.current
     if (scrollElement) {
       scrollElement.addEventListener('scroll', handleScroll)
+      handleScroll()
       return () => scrollElement.removeEventListener('scroll', handleScroll)
     }
   }, [])
@@ -90,9 +102,25 @@ const EventsSection = () => {
     }
   ]
 
+  const getCardStride = () => {
+    const container = scrollRef.current
+    if (container) {
+      const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
+      if (cards.length > 0) {
+        const first = cards[0]
+        const second = cards[1]
+        const gap = second
+          ? second.offsetLeft - first.offsetLeft - first.offsetWidth
+          : 24
+        return first.offsetWidth + gap
+      }
+    }
+    return 320
+  }
+
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = 320
+      const scrollAmount = getCardStride()
       scrollRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -100,8 +128,20 @@ const EventsSection = () => {
     }
   }
 
+  // Center first card on mount for large screens
+  useEffect(() => {
+    const container = scrollRef.current
+    if (!container) return
+    const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
+    if (cards.length === 0) return
+    const first = cards[0]
+    const target = first.offsetLeft + first.offsetWidth / 2 - container.clientWidth / 2
+    container.scrollLeft = Math.max(target, 0)
+    setActiveIndex(0)
+  }, [])
+
   return (
-    <section id="eventi" className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-slate-grey via-midnight-blue to-slate-800 relative overflow-hidden">
+    <section id="eventi" className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
       <div className="absolute inset-0 radial-glow opacity-30" />
       <div className="w-full flex justify-center relative z-10">
         <div className="max-w-7xl w-full !px-8 md:px-6 lg:px-8">
@@ -112,9 +152,14 @@ const EventsSection = () => {
           viewport={{ once: true }}
           className="text-center !mb-10 md:!mb-14 lg:!mb-16 flex flex-col items-center !mt-20"
         >
-          <h2 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-light text-ice-white !mb-1 md:!mb-1 tracking-widest uppercase text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-light text-ice-white !mb-1 md:!mb-1 tracking-widest uppercase text-center"
+          >
             Eventi
-          </h2>
+          </motion.h2>
           <div className="w-24 md:w-32 h-px bg-ice-white/30 !mb-6 md:!mb-8"></div>
         </motion.div>
 
@@ -155,10 +200,13 @@ const EventsSection = () => {
                 <button
                   key={index}
                   onClick={() => {
-                    if (scrollRef.current) {
-                      const cardWidth = 288 + 24 // w-72 + mr-6
-                      scrollRef.current.scrollTo({
-                        left: index * cardWidth,
+                    const container = scrollRef.current
+                    if (container) {
+                      const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
+                      const cardWidth = getCardStride()
+                      const startOffset = cards[0]?.offsetLeft ?? 0
+                      container.scrollTo({
+                        left: startOffset + index * cardWidth,
                         behavior: 'smooth'
                       })
                     }
@@ -174,42 +222,46 @@ const EventsSection = () => {
           {/* Desktop navigation arrows */}
           <button
             onClick={() => scroll('left')}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-ice-white/10 border border-ice-white/20 backdrop-blur-sm text-ice-white hover:bg-ice-white/20 transition"
+            className="hidden md:flex items-center justify-center absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-ice-white/10 border border-ice-white/20 backdrop-blur-sm text-ice-white hover:bg-ice-white/20 transition"
             aria-label="Scroll eventi precedenti"
             type="button"
           >
-            <ChevronLeft className="w-5 h-5 mx-auto" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => scroll('right')}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-ice-white/10 border border-ice-white/20 backdrop-blur-sm text-ice-white hover:bg-ice-white/20 transition"
+            className="hidden md:flex items-center justify-center absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-ice-white/10 border border-ice-white/20 backdrop-blur-sm text-ice-white hover:bg-ice-white/20 transition"
             aria-label="Scroll eventi successivi"
             type="button"
           >
-            <ChevronRight className="w-5 h-5 mx-auto" />
+            <ChevronRight className="w-5 h-5" />
           </button>
 
-          <div className="md:px-12 lg:px-16">
-            <div
-              ref={scrollRef}
-              className="flex flex-row !gap-6 sm:!gap-8 md:!gap-12 lg:!gap-28 xl:!gap-32 overflow-x-auto scrollbar-hide !pb-8 !pt-12 md:!pt-16 justify-start sm:justify-center items-center !pl-1 sm:!pl-0 !pr-16 sm:!pr-10 md:!pr-12 snap-x snap-mandatory"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-              {events.slice(1).map((event, index) => (
-                <div
-                  key={event.id}
-                  className={`flex-none snap-center transition-all duration-500 ${
-                    activeIndex === index
-                      ? 'w-72 sm:w-72 md:w-80 scale-100'
-                      : 'w-64 sm:w-72 md:w-80 scale-90 sm:scale-100 opacity-70 sm:opacity-100'
-                  }`}
-                >
-                  <EventCard
-                    event={event}
-                    onClick={() => window.open(event.instagramUrl, '_blank')}
-                  />
-                </div>
-              ))}
+          <div className="md:px-8 lg:px-16 flex justify-center">
+            <div className="max-w-5xl lg:max-w-4xl w-full">
+              <div
+                ref={scrollRef}
+                className="flex flex-row !gap-5 sm:!gap-7 md:!gap-10 lg:!gap-12 overflow-x-auto scrollbar-hide !pb-8 !pt-12 md:!pt-16 justify-start items-center !pl-4 sm:!pl-6 md:!pl-8 lg:!pl-20 !pr-20 md:!pr-24 lg:!pr-40 snap-x snap-mandatory snap-always"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                <div className="flex-none w-0 sm:w-6 md:w-16 lg:w-40" aria-hidden />
+                {events.slice(1).map((event, index) => (
+                  <div
+                    key={event.id}
+                    className={`event-card flex-none snap-center transition-all duration-500 ${
+                      activeIndex === index
+                        ? 'w-72 sm:w-80 md:w-[26rem] lg:w-[30rem] scale-100 opacity-100'
+                        : 'w-56 sm:w-64 md:w-72 lg:w-64 scale-90 md:scale-75 opacity-60 md:opacity-35'
+                    }`}
+                  >
+                    <EventCard
+                      event={event}
+                      onClick={() => window.open(event.instagramUrl, '_blank')}
+                    />
+                  </div>
+                ))}
+                <div className="flex-none w-0 sm:w-6 md:w-16 lg:w-40" aria-hidden />
+              </div>
             </div>
           </div>
 

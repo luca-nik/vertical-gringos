@@ -5,7 +5,7 @@ import { Instagram } from 'lucide-react'
 
 const ContactSection = () => {
   return (
-    <section className="py-24 md:py-32 lg:py-40 bg-gradient-to-b from-slate-800 to-midnight-blue w-full ">
+    <section className="py-24 md:py-32 lg:py-40 w-full">
       <div className="w-full flex justify-center ">
         <div className="max-w-7xl w-full px-6 md:px-6 lg:px-8">
           <div className="flex justify-center !mt-10 !mb-10 md:!mb-10 lg:!mb-10">

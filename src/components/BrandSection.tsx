@@ -41,7 +41,7 @@ const BrandSection = () => {
   ]
 
   return (
-    <section id="brand" className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-midnight-blue to-slate-grey">
+    <section id="brand" className="py-12 md:py-16 lg:py-20">
       <div className="w-full flex justify-center">
         <div className="max-w-7xl w-full px-6 md:px-6 lg:px-8">
         <motion.div

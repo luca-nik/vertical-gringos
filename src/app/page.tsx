@@ -1,10 +1,11 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import SkiSoundSection from '@/components/SkiSoundSection'
-import AboutSection from '@/components/AboutSection'
+import MissionSection from '@/components/MissionSection'
 import EventsSection from '@/components/EventsSection'
 import BrandSection from '@/components/BrandSection'
 import ContactSection from '@/components/ContactSection'
+import AboutSection from '@/components/AboutSection'
 
 /**
  * CSS RESET & TAILWIND MARGINS/PADDING IMPORTANT NOTE:
@@ -30,8 +31,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <SkiSoundSection />
-      <AboutSection />
+      <MissionSection />
       <EventsSection />
+      <AboutSection />
       {/*<BrandSection />*/}
       <ContactSection />
     </div>
