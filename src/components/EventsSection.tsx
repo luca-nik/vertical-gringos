@@ -32,7 +32,7 @@ const EventsSection = () => {
     {
       id: 'ski-and-sound',
       title: 'Ski and Sound',
-      subtitle: 'sky Freestyle & Techno',
+      subtitle: 'Ski Freestyle & Techno',
       date: '7 Dicembre 2025',
       location: 'Abetone',
       type: 'upcoming' as const,
@@ -40,21 +40,23 @@ const EventsSection = () => {
       coverImage: '/events/ski_sound.jpeg',
       instagramUrl: 'https://www.instagram.com/p/DRsHtvIDDV6/',
       galleryImages: [
-        'https://source.unsplash.com/800x600/?ski,alpine,music',
-        'https://source.unsplash.com/800x601/?winter,party,mountain',
-        'https://source.unsplash.com/800x602/?snow,dj,festival'
+ 
       ],
     },
     {
       id: 'rossi-autumn-mix',
-      title: 'Rossi Autumn Mix',
-      subtitle: 'Halloween nelle Apuane',
+      title: 'Halloween Mix',
+      subtitle: 'Yoga & Techno',
       date: '1 Novembre 2025',
       location: 'Alpi Apuane',
       type: 'past' as const,
       theme: 'autumn' as const,
       coverImage: '/events/halloween2.jpg',
       instagramUrl: 'https://www.instagram.com/p/DRA0zULjDdd/',
+      galleryImages: [
+        '/events/halloween1.jpg',
+        '/events/halloween3.jpg',
+      ],
     },
     {
       id: 'summer-alpine-flow',
@@ -66,6 +68,10 @@ const EventsSection = () => {
       theme: 'summer' as const,
       coverImage: '/events/summer1.jpg',
       instagramUrl: 'https://www.instagram.com/p/DLIfW0csK4q/?img_index=1',
+      galleryImages: [
+        '/events/summer2.JPG',
+        '/events/summer3.jpg',
+      ],
     }
   ]
 

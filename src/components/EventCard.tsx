@@ -24,17 +24,20 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
   const [isHovered, setIsHovered] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  // Auto-rotate gallery images every 2 seconds
+  // Create array of all images (cover + gallery images)
+  const allImages = [event.coverImage, ...(event.galleryImages || [])]
+
+  // Auto-rotate through all images every 3 seconds
   useEffect(() => {
-    if (event.galleryImages && event.galleryImages.length > 0) {
+    if (allImages.length > 1) {
       const interval = setInterval(() => {
-        setCurrentImageIndex(prev => 
-          prev === event.galleryImages!.length - 1 ? 0 : prev + 1
+        setCurrentImageIndex(prev =>
+          prev === allImages.length - 1 ? 0 : prev + 1
         )
-      }, 2000)
+      }, 3000)
       return () => clearInterval(interval)
     }
-  }, [event.galleryImages])
+  }, [allImages.length])
 
   const themeColors = {
     winter: {
@@ -72,28 +75,15 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
       onClick={onClick}
       className={`relative rounded-3xl overflow-hidden cursor-pointer backdrop-blur-md border ${theme.border} shadow-2xl h-80 md:h-96 group`}
     >
-      {/* Background Image with Cross-fade */}
+      {/* Background Image - Cycling through all images */}
       <div className="absolute inset-0">
         <Image
-          src={event.coverImage}
-          alt={event.title}
+          key={currentImageIndex}
+          src={allImages[currentImageIndex]}
+          alt={`${event.title} ${currentImageIndex + 1}`}
           fill
           className="object-cover transition-all duration-[2s] ease-out group-hover:scale-110"
-          style={{ opacity: !isHovered || !event.galleryImages ? 1 : 0.7 }}
         />
-        
-        {/* Gallery image rotation - auto-rotating images */}
-        {event.galleryImages && event.galleryImages.length > 0 && (
-          <div className="absolute inset-0">
-            <Image
-              key={currentImageIndex}
-              src={event.galleryImages[currentImageIndex]}
-              alt={`${event.title} gallery ${currentImageIndex + 1}`}
-              fill
-              className="object-cover transition-opacity duration-1000 opacity-70"
-            />
-          </div>
-        )}
       </div>
 
       {/* Overlay */}
