@@ -129,17 +129,30 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
           </div>
         </div>
 
-        {/* Hover Action */}
+        {/* Action Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="absolute !inset-x-6 md:!inset-x-8 !bottom-4 md:!bottom-5"
+          className="hidden md:block absolute !inset-x-6 md:!inset-x-8 !bottom-4 md:!bottom-5"
         >
           <button className="w-full py-2 md:py-3 bg-ice-white/20 backdrop-blur-sm border border-ice-white/30 rounded-full text-ice-white hover:bg-ice-white/30 transition-all duration-300 text-xs md:text-sm font-medium">
             {event.type === 'upcoming' ? 'Scopri' : 'Recap'}
           </button>
         </motion.div>
+
+        {/* Mobile Action Button - Always visible */}
+        <div className="md:hidden absolute !inset-x-0 !bottom-4 flex justify-center">
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              onClick?.()
+            }}
+            className="!px-6 !py-2 bg-ice-white/20 backdrop-blur-sm border border-ice-white/30 rounded-full text-ice-white active:bg-ice-white/30 transition-all duration-300 text-xs font-medium"
+          >
+            {event.type === 'upcoming' ? 'Scopri' : 'Recap'}
+          </button>
+        </div>
       </div>
     </motion.div>
   )

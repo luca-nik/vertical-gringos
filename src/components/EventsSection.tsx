@@ -163,11 +163,18 @@ const EventsSection = () => {
 
           <div
             ref={scrollRef}
-            className="flex flex-row !gap-6 sm:!gap-8 md:!gap-12 lg:!gap-28 xl:!gap-32 overflow-x-auto scrollbar-hide !pb-8 !pt-12 md:!pt-16 justify-start sm:justify-center items-center !pl-16 sm:!pl-0"
+            className="flex flex-row !gap-6 sm:!gap-8 md:!gap-12 lg:!gap-28 xl:!gap-32 overflow-x-auto scrollbar-hide !pb-8 !pt-12 md:!pt-16 justify-start sm:justify-center items-center !pl-4 sm:!pl-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {events.slice(1).map((event) => (
-              <div key={event.id} className="flex-none w-72 sm:w-72 md:w-80">
+            {events.slice(1).map((event, index) => (
+              <div
+                key={event.id}
+                className={`flex-none transition-all duration-500 ${
+                  activeIndex === index
+                    ? 'w-72 sm:w-72 md:w-80 scale-100'
+                    : 'w-64 sm:w-72 md:w-80 scale-90 sm:scale-100 opacity-70 sm:opacity-100'
+                }`}
+              >
                 <EventCard
                   event={event}
                   onClick={() => window.open(event.instagramUrl, '_blank')}

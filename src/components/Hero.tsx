@@ -18,29 +18,18 @@ const Hero = () => {
   return (
     <section ref={ref} id="home" className="relative h-screen overflow-hidden">
       {/* --- Cinematic Background with Parallax --- */}
-      <motion.div 
+      <motion.div
         style={{ y }}
         className="absolute inset-0 w-full h-[120%] -top-[10%]"
       >
-        {/* Fallback Image (shown if video fails to load) */}
-        <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `
-              linear-gradient(to bottom, rgba(26, 37, 47, 0.2), rgba(26, 37, 47, 0.6)),
-              url("/images/hero-homepage.jpg")
-            `
-          }}
-        />
-        
-        {/* Hero Video */}
+        {/* Hero Video - uses first frame as poster */}
         <video
           className="absolute inset-0 w-full h-full object-cover z-10"
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           onLoadedData={() => {
             console.log('Video loaded successfully')
           }}
