@@ -76,7 +76,7 @@ const EventsSection = () => {
     {
       id: 'six-a-vecchiano',
       title: '6 A Vecchiano',
-      subtitle: 'Climbing & Techno',
+      subtitle: 'Climbing & Chill Electronic',
       date: '15 Maggio 2025',
       location: 'Falesia di Avane',
       type: 'past' as const,
@@ -118,8 +118,7 @@ const EventsSection = () => {
           <div className="w-24 md:w-32 h-px bg-ice-white/30 !mb-6 md:!mb-8"></div>
           <div className="flex justify-center w-full">
             <p className="text-lg md:text-xl text-ice-white/80 max-w-2xl font-light leading-relaxed text-center">
-              Momenti indimenticabili tra montagne e musica. Dalle piste innevate ai rifugi estivi,
-              ogni evento è un&apos;esperienza di puro flow.
+            Momenti unici che uniscono outdoor, musica e community. Ogni evento è un&apos;esperienza da vivere insieme.
             </p>
           </div>
         </motion.div>

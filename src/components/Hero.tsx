@@ -80,10 +80,10 @@ const Hero = () => {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
             className="font-display text-4xl md:text-6xl lg:text-8xl font-medium text-[#F6B21A] !mb-5 md:!mb-7 lg:!mb-8 tracking-widest uppercase leading-tight drop-shadow-xl"
           >
-            CHASING HIGHS
+            AESTETIC ALPINISM
             <br />
             <span className="text-ice-white/60 font-light block !mt-2">
-              SHARED VIBES
+            MEETS ELECTRONIC MUSIC
             </span>
           </motion.h1>
 
@@ -93,7 +93,7 @@ const Hero = () => {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
             className="text-lg md:text-2xl text-[#F6B21A] !mb-6 md:!mb-8 lg:!mb-4 font-light tracking-wide max-w-xl mx-auto"
           >
-            The collective for those who breathe the outdoors 
+            For those who breathe the outdoors 
             <span className="hidden md:inline">  </span> 
             <br className="md:hidden" />
             and live the electronic vibe.

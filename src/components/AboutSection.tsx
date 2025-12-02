@@ -8,23 +8,23 @@ const AboutSection = () => {
   const values = [
     {
       icon: Mountain,
-      title: 'Alpinism',
-      description: 'La montagna come palestra di vita, dove ogni salita è un viaggio interiore verso la scoperta di sé.'
+      title: 'Outdoor',
+      description: 'La nostra libertà fisica: spazio, movimento, natura.'
     },
     {
       icon: Music,
-      title: 'Electronic Music',
-      description: 'I ritmi che ci accompagnano, dalle cascate di ghiaccio, alle serate sotto cassa.'
+      title: 'Musica',
+      description: 'La nostra libertà mentale: ritmo, ispirazione, espressione.'
     },
     {
       icon: Heart,
       title: 'Rispetto',
-      description: 'Divertimento ma con rispetto dei luoghi e delle persone. '
+      description: 'Per i luoghi che viviamo e le persone che li condividono. '
     },
     {
       icon: Users,
       title: 'Community',
-      description: 'Una famiglia di esploratori uniti dalla passione per le vette e i beats che scaldano il cuore.'
+      description: "Il punto d’incontro di questi valori: noi, insieme."
     }
   ]
 
@@ -57,18 +57,19 @@ const AboutSection = () => {
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white !mb-6 md:!mb-8 tracking-tight leading-tight ml-5">
-                Siamo alpinisti che amano la musica
+                Outdoor. Musica. Insieme.
               </h2>
               
               <div className="space-y-4 md:space-y-6 text-lg font-light leading-relaxed text-ice-white/80">
                 <p>
                   Tutto è iniziato con una semplice domanda: perché non portare 
-                  i ritmi che amiamo nelle montagne che ci ispirano?
+                  i ritmi che ci muovono nelle montagne che amiamo?
                 </p>
                 
                 <p>
-                  <strong className="text-ice-white">Vertical Gringos</strong> nasce dall&apos;idea di creare 
-                  momenti unici dove l&apos;energia dell&apos;alpinismo incontra quella della musica elettronica. 
+                  <strong className="text-ice-white">Vertical Gringos</strong> nasce dal desiderio di due alpinisti di creare
+        momenti unici di comunità, dove la passione per l&apos;outdoor e il rispetto per i luoghi
+        si fondono con l&apos;energia della musica elettronica. 
                 </p>
               </div>
             </div>
@@ -193,9 +194,7 @@ const AboutSection = () => {
             </h3>
             
             <p className="text-lg md:text-xl text-ice-white/90 font-light leading-relaxed !mb-6 md:!mb-8">
-              Creare esperienze che uniscano persone, montagne e musica in armonia perfetta. 
-              Ogni evento è un invito a riscoprire la bellezza del flow, 
-              sia che tu stia scalando una parete o ballando sotto le stelle.
+            Creare esperienze uniche, dove sport outdoor e musica si intrecciano e uniscono le persone, nel rispetto dei luoghi e di chi li vive.
             </p>
             
           </div>
