@@ -84,8 +84,8 @@ const AboutSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
               </div>
               
-              {/* Floating card with quote */}
-              <motion.div
+              {/* Floating card with quote - commented for future use */}
+              {/* <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
@@ -96,7 +96,7 @@ const AboutSection = () => {
                   la musica ci ricorda che ogni battito è vita.&rdquo;
                 </p>
                 <p className="text-ice-white/60 text-xs !mt-3 font-medium"> — Team Vertical Gringos</p>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
         </motion.div>
@@ -107,9 +107,9 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="!mb-16 md:!mb-20 lg:!mb-26"
+          className="!mb-20 md:!mb-24 lg:!mb-32"
         >
-          <h3 className="text-2xl md:text-3xl font-light text-ice-white text-center pb-20 md:pb-28 lg:pb-36">
+          <h3 className="text-2xl md:text-3xl font-light text-ice-white text-center !pb-10 md:!pb-10 lg:!pb-10">
             I nostri valori
           </h3>
 

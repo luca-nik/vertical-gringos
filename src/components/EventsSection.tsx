@@ -3,10 +3,29 @@
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import EventCard from './EventCard'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 const EventsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  // Track scroll position for dots indicator
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollRef.current) {
+        const scrollLeft = scrollRef.current.scrollLeft
+        const cardWidth = 288 + 24 // w-72 + mr-6
+        const newIndex = Math.round(scrollLeft / cardWidth)
+        setActiveIndex(newIndex)
+      }
+    }
+
+    const scrollElement = scrollRef.current
+    if (scrollElement) {
+      scrollElement.addEventListener('scroll', handleScroll)
+      return () => scrollElement.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   // Sample events data based on existing repos
   const events = [
@@ -111,17 +130,38 @@ const EventsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
         >
-          <div className="!mb-0">
-            <h3 className="text-xl md:text-2xl font-light text-ice-white text-center">Eventi Passati</h3>
+          <div className="!mb-0 flex items-center justify-between">
+            <h3 className="text-xl md:text-2xl font-light text-ice-white flex-1 text-center">Eventi Passati</h3>
+            
+            {/* Carousel dots for mobile - top right */}
+            <div className="flex space-x-2 sm:hidden">
+              {events.slice(1).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    if (scrollRef.current) {
+                      const cardWidth = 288 + 24 // w-72 + mr-6
+                      scrollRef.current.scrollTo({
+                        left: index * cardWidth,
+                        behavior: 'smooth'
+                      })
+                    }
+                  }}
+                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                    activeIndex === index ? 'bg-[#F6B21A]' : 'border border-ice-white/50 bg-transparent'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
           <div
             ref={scrollRef}
-            className="flex flex-row sm:!space-x-8 md:!space-x-12 lg:!space-x-20 xl:!space-x-24 overflow-x-auto scrollbar-hide !pb-8 !pt-12 md:!pt-16 justify-start sm:justify-center items-center !space-y-0 !pl-16 sm:!pl-0"
+            className="flex flex-row !gap-6 sm:!gap-8 md:!gap-12 lg:!gap-28 xl:!gap-32 overflow-x-auto scrollbar-hide !pb-8 !pt-12 md:!pt-16 justify-start sm:justify-center items-center !pl-16 sm:!pl-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {events.slice(1).map((event) => (
-              <div key={event.id} className="flex-none w-80 sm:w-72 md:w-80 !mr-6 sm:!mr-0">
+              <div key={event.id} className="flex-none w-72 sm:w-72 md:w-80">
                 <EventCard
                   event={event}
                   onClick={() => window.open(event.instagramUrl, '_blank')}
@@ -143,6 +183,7 @@ const EventsSection = () => {
               </p>
             </motion.div> */}
           </div>
+          
         </motion.div>
         </div>
       </div>

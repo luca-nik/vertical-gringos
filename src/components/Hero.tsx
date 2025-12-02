@@ -123,7 +123,7 @@ const Hero = () => {
               href="#ski-sound"
               whileHover={{ scale: 1.1, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative min-w-[240px] px-8 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center"
+              className="group relative min-w-[200px] sm:min-w-[240px] px-6 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center"
             >
               <span className="relative z-10 text-sm font-bold tracking-[0.2em] uppercase">
                 Prossimo Evento
@@ -137,7 +137,7 @@ const Hero = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="group min-w-[240px] px-8 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center"
+              className="group min-w-[200px] sm:min-w-[240px] px-6 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center"
             >
               <span className="text-sm font-bold tracking-[0.2em] uppercase">
                 Contattaci
