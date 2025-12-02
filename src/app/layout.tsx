@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Vertical Gringos",
-  description: "Eventi outdoor",
+  description: "Alpinism, Music & Community",
   keywords: "alpinism, electronic music, mountain events, aesthetic lifestyle, outdoor apparel, flow state, vertical gringos",
   openGraph: {
     title: "Vertical Gringos",
-    description: "Eventi outdoor",
+    description: "Alpinism, Music & Community",
     type: "website",
     url: "https://www.verticalgringos.com",
     siteName: "Vertical Gringos",
