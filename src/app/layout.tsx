@@ -3,17 +3,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Vertical Gringos",
-  description: "Eventi unici che uniscono passione per l'outdoor e musica elettronica.",
+  description: "Eventi outdoor",
   keywords: "alpinism, electronic music, mountain events, aesthetic lifestyle, outdoor apparel, flow state, vertical gringos",
   openGraph: {
     title: "Vertical Gringos",
-    description: "Eventi unici che uniscono passione per l'outdoor e musica elettronica.",
+    description: "Eventi outdoor",
     type: "website",
     url: "https://www.verticalgringos.com",
     siteName: "Vertical Gringos",
     images: [
       {
-        url: "/images/vertical-logo.png",
+        url: "/images/vertical-logo-small.png",
         width: 1200,
         height: 630,
         alt: "Vertical Gringos - Chasing Highs, Shared Vibes",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vertical Gringos",
     description: "Alpinism, Events, Music & Community",
-    images: ["/images/vertical-logo.png"],
+    images: ["/images/vertical-logo-small.png"],
   },
   metadataBase: new URL("https://www.verticalgringos.com"),
 };
