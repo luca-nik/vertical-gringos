@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Calendar, MapPin } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
@@ -77,13 +77,23 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
     >
       {/* Background Image - Cycling through all images */}
       <div className="absolute inset-0">
-        <Image
-          key={currentImageIndex}
-          src={allImages[currentImageIndex]}
-          alt={`${event.title} ${currentImageIndex + 1}`}
-          fill
-          className="object-cover transition-all duration-[2s] ease-out group-hover:scale-110"
-        />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0.2 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0.1 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={allImages[currentImageIndex]}
+              alt={`${event.title} ${currentImageIndex + 1}`}
+              fill
+              className="object-cover transition-all duration-[2s] ease-out group-hover:scale-110"
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Overlay */}
