@@ -51,11 +51,22 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center !mb-12 md:!mb-16 lg:!mb-20"
+          className="text-center !mb-16 md:!mb-25 lg:!mb-30"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white tracking-tight leading-tight">
             Vertical Gringos
           </h2>
+          <div className="!mt-10 md:!mt-12 flex justify-center">
+            <div className="relative w-full max-w-3xl h-72 md:h-80 lg:h-[36rem] rounded-3xl overflow-hidden">
+              <Image
+                src="/team/team-gringos-noi.jpg"
+                alt="Vertical Gringos team"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
         </motion.div>
         {/* Values */}
         <motion.div

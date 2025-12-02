@@ -11,39 +11,6 @@ const EventsSection = () => {
   const manualScrollRef = useRef(false)
   const manualTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  // Track scroll position for dots indicator (nearest card to center)
-  useEffect(() => {
-    const handleScroll = () => {
-      if (manualScrollRef.current) return
-      const container = scrollRef.current
-      if (container) {
-        const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
-        if (cards.length === 0) return
-        const viewportCenter = container.scrollLeft + container.clientWidth / 2
-        let nearestIndex = 0
-        let minDistance = Number.MAX_VALUE
-        cards.forEach((card, idx) => {
-          const center = card.offsetLeft + card.offsetWidth / 2
-          const distance = Math.abs(center - viewportCenter)
-          if (distance < minDistance) {
-            minDistance = distance
-            nearestIndex = idx
-          }
-        })
-        setActiveIndex(nearestIndex)
-      }
-    }
-
-    const scrollElement = scrollRef.current
-    if (scrollElement) {
-      scrollElement.addEventListener('scroll', handleScroll)
-      handleScroll()
-      return () => scrollElement.removeEventListener('scroll', handleScroll)
-    }
-    return undefined
-  }, [])
-
-  // Sample events data based on existing repos
   const events = [
     {
       id: 'ski-and-sound',
@@ -55,9 +22,7 @@ const EventsSection = () => {
       theme: 'winter' as const,
       coverImage: '/events/ski_sound.jpeg',
       instagramUrl: 'https://www.instagram.com/p/DRsHtvIDDV6/',
-      galleryImages: [
- 
-      ],
+      galleryImages: []
     },
     {
       id: 'rossi-autumn-mix',
@@ -69,10 +34,7 @@ const EventsSection = () => {
       theme: 'autumn' as const,
       coverImage: '/events/halloween2.jpg',
       instagramUrl: 'https://www.instagram.com/p/DRA0zULjDdd/',
-      galleryImages: [
-        '/events/halloween1.jpg',
-        '/events/halloween3.jpg',
-      ],
+      galleryImages: ['/events/halloween1.jpg', '/events/halloween3.jpg']
     },
     {
       id: 'summer-alpine-flow',
@@ -84,10 +46,7 @@ const EventsSection = () => {
       theme: 'summer' as const,
       coverImage: '/events/summer1.jpg',
       instagramUrl: 'https://www.instagram.com/p/DLIfW0csK4q/?img_index=1',
-      galleryImages: [
-        '/events/summer2.JPG',
-        '/events/summer3.jpg',
-      ],
+      galleryImages: ['/events/summer2.JPG', '/events/summer3.jpg']
     },
     {
       id: 'six-a-vecchiano',
@@ -99,10 +58,7 @@ const EventsSection = () => {
       theme: 'spring' as const,
       coverImage: '/events/vecchiano1.jpg',
       instagramUrl: 'https://www.instagram.com/p/DJwLLaosER5/?img_index=1',
-      galleryImages: [
-        '/events/vecchiano2.jpg',
-        '/events/vecchiano3.jpg'
-      ],
+      galleryImages: ['/events/vecchiano2.jpg', '/events/vecchiano3.jpg']
     }
   ]
 
@@ -112,8 +68,7 @@ const EventsSection = () => {
     const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
     const targetCard = cards[index]
     if (!targetCard) return
-    const target =
-      targetCard.offsetLeft + targetCard.offsetWidth / 2 - container.clientWidth / 2
+    const target = targetCard.offsetLeft + targetCard.offsetWidth / 2 - container.clientWidth / 2
     manualScrollRef.current = true
     if (manualTimeoutRef.current) clearTimeout(manualTimeoutRef.current)
     container.scrollTo({
@@ -136,13 +91,71 @@ const EventsSection = () => {
     scrollToIndex(clamped)
   }
 
-  // Center first card on mount for large screens
+  // Track scroll position for dots indicator (nearest to center)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (manualScrollRef.current) return
+      const container = scrollRef.current
+      if (!container) return
+      const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
+      if (cards.length === 0) return
+      const viewportCenter = container.scrollLeft + container.clientWidth / 2
+      let nearestIndex = 0
+      let minDistance = Number.MAX_VALUE
+      cards.forEach((card, idx) => {
+        const center = card.offsetLeft + card.offsetWidth / 2
+        const distance = Math.abs(center - viewportCenter)
+        if (distance < minDistance) {
+          minDistance = distance
+          nearestIndex = idx
+        }
+      })
+      setActiveIndex(nearestIndex)
+    }
+
+    const scrollElement = scrollRef.current
+    if (scrollElement) {
+      scrollElement.addEventListener('scroll', handleScroll)
+      handleScroll()
+      return () => scrollElement.removeEventListener('scroll', handleScroll)
+    }
+    return undefined
+  }, [])
+
+  // Center first card on mount
   useEffect(() => {
     scrollToIndex(0)
     return () => {
       if (manualTimeoutRef.current) clearTimeout(manualTimeoutRef.current)
     }
   }, [])
+
+  // Limit wheel scroll to one card at a time (horizontal only)
+  useEffect(() => {
+    const container = scrollRef.current
+    if (!container) return
+
+    const onWheel = (e: WheelEvent) => {
+      const absX = Math.abs(e.deltaX)
+      const absY = Math.abs(e.deltaY)
+      if (absX <= absY) return
+      if (manualScrollRef.current) {
+        e.preventDefault()
+        return
+      }
+      e.preventDefault()
+      const direction = e.deltaX > 0 ? 1 : -1
+      const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
+      if (cards.length === 0) return
+      const nextIndex = Math.max(0, Math.min(cards.length - 1, activeIndex + direction))
+      if (nextIndex !== activeIndex) {
+        scrollToIndex(nextIndex)
+      }
+    }
+
+    container.addEventListener('wheel', onWheel, { passive: false })
+    return () => container.removeEventListener('wheel', onWheel)
+  }, [activeIndex])
 
   return (
     <section id="eventi" className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
@@ -203,12 +216,7 @@ const EventsSection = () => {
               {events.slice(1).map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => {
-                    const container = scrollRef.current
-                    if (container) {
-                      scrollToIndex(index)
-                    }
-                  }}
+                  onClick={() => scrollToIndex(index)}
                   className={`w-2 h-2 rounded-full transition-colors duration-300 ${
                     activeIndex === index ? 'bg-[#F6B21A]' : 'border border-ice-white/50 bg-transparent'
                   }`}
@@ -262,21 +270,6 @@ const EventsSection = () => {
               </div>
             </div>
           </div>
-
-          {/* Add more events card */}
-          {/* <motion.div
-            whileHover={{ scale: 1.02, y: -5 }}
-            className="flex-none w-72 md:w-80 h-96 rounded-3xl border-2 border-dashed border-ice-white/30 flex flex-col items-center justify-center text-center p-4 md:p-6 cursor-pointer hover:border-ice-white/50 transition-all duration-300"
-          >
-            <div className="w-12 md:w-16 h-12 md:h-16 rounded-full bg-ice-white/10 backdrop-blur-sm flex items-center justify-center !mb-3 md:!mb-4">
-              <span className="text-xl md:text-2xl text-ice-white">+</span>
-            </div>
-            <h4 className="text-ice-white text-base md:text-lg font-light !mb-2">Altri Eventi</h4>
-            <p className="text-ice-white/60 text-sm font-light leading-relaxed">
-              Scopri tutti i nostri eventi passati e le esperienze vissute insieme
-            </p>
-          </motion.div> */}
-
         </motion.div>
         </div>
       </div>

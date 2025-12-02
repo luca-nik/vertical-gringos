@@ -19,16 +19,16 @@ const Navbar = () => {
             Home
           </a>
           <a 
-            href="#chi-siamo" 
-            className="text-ice-white/90 hover:text-ice-white hover:scale-110 transition-all duration-300 text-sm font-bold tracking-widest uppercase"
-          >
-            Chi Siamo
-          </a>
-          <a 
             href="#eventi" 
             className="text-ice-white/90 hover:text-ice-white hover:scale-110 transition-all duration-300 text-sm font-bold tracking-widest uppercase"
           >
             Eventi
+          </a>
+          <a 
+            href="#chi-siamo" 
+            className="text-ice-white/90 hover:text-ice-white hover:scale-110 transition-all duration-300 text-sm font-bold tracking-widest uppercase"
+          >
+            Chi Siamo
           </a>
         </div>
       </div>
