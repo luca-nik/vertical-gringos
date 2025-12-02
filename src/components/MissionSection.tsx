@@ -48,7 +48,7 @@ const MissionSection = () => {
                     Tutto è iniziato con una semplice domanda.
                   </p>
                   <p className="text-ice-white/100 italic md:text-xl">
-                    Perché non portare i ritmi che amiamo nelle montagne che viviamo?
+                    Perché non portare i ritmi che ci muovono nelle montagne che amiamo?
                   </p>
                   <div className="h-2"></div>
                   <p>
