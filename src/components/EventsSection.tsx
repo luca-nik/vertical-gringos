@@ -144,6 +144,7 @@ const EventsSection = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          className="relative"
         >
           <div className="!mb-0 flex items-center justify-between">
             <h3 className="text-xl md:text-2xl font-light text-ice-white flex-1 text-center">Eventi Passati</h3>
@@ -170,42 +171,62 @@ const EventsSection = () => {
             </div>
           </div>
 
-          <div
-            ref={scrollRef}
-            className="flex flex-row !gap-6 sm:!gap-8 md:!gap-12 lg:!gap-28 xl:!gap-32 overflow-x-auto scrollbar-hide !pb-8 !pt-12 md:!pt-16 justify-start sm:justify-center items-center !pl-1 sm:!pl-0 !pr-16 sm:!pr-10 md:!pr-12 snap-x snap-mandatory"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          {/* Desktop navigation arrows */}
+          <button
+            onClick={() => scroll('left')}
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-ice-white/10 border border-ice-white/20 backdrop-blur-sm text-ice-white hover:bg-ice-white/20 transition"
+            aria-label="Scroll eventi precedenti"
+            type="button"
           >
-            {events.slice(1).map((event, index) => (
-              <div
-                key={event.id}
-                className={`flex-none snap-center transition-all duration-500 ${
-                  activeIndex === index
-                    ? 'w-72 sm:w-72 md:w-80 scale-100'
-                    : 'w-64 sm:w-72 md:w-80 scale-90 sm:scale-100 opacity-70 sm:opacity-100'
-                }`}
-              >
-                <EventCard
-                  event={event}
-                  onClick={() => window.open(event.instagramUrl, '_blank')}
-                />
-              </div>
-            ))}
+            <ChevronLeft className="w-5 h-5 mx-auto" />
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-ice-white/10 border border-ice-white/20 backdrop-blur-sm text-ice-white hover:bg-ice-white/20 transition"
+            aria-label="Scroll eventi successivi"
+            type="button"
+          >
+            <ChevronRight className="w-5 h-5 mx-auto" />
+          </button>
 
-            {/* Add more events card */}
-            {/* <motion.div
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="flex-none w-72 md:w-80 h-96 rounded-3xl border-2 border-dashed border-ice-white/30 flex flex-col items-center justify-center text-center p-4 md:p-6 cursor-pointer hover:border-ice-white/50 transition-all duration-300"
+          <div className="md:px-12 lg:px-16">
+            <div
+              ref={scrollRef}
+              className="flex flex-row !gap-6 sm:!gap-8 md:!gap-12 lg:!gap-28 xl:!gap-32 overflow-x-auto scrollbar-hide !pb-8 !pt-12 md:!pt-16 justify-start sm:justify-center items-center !pl-1 sm:!pl-0 !pr-16 sm:!pr-10 md:!pr-12 snap-x snap-mandatory"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              <div className="w-12 md:w-16 h-12 md:h-16 rounded-full bg-ice-white/10 backdrop-blur-sm flex items-center justify-center !mb-3 md:!mb-4">
-                <span className="text-xl md:text-2xl text-ice-white">+</span>
-              </div>
-              <h4 className="text-ice-white text-base md:text-lg font-light !mb-2">Altri Eventi</h4>
-              <p className="text-ice-white/60 text-sm font-light leading-relaxed">
-                Scopri tutti i nostri eventi passati e le esperienze vissute insieme
-              </p>
-            </motion.div> */}
+              {events.slice(1).map((event, index) => (
+                <div
+                  key={event.id}
+                  className={`flex-none snap-center transition-all duration-500 ${
+                    activeIndex === index
+                      ? 'w-72 sm:w-72 md:w-80 scale-100'
+                      : 'w-64 sm:w-72 md:w-80 scale-90 sm:scale-100 opacity-70 sm:opacity-100'
+                  }`}
+                >
+                  <EventCard
+                    event={event}
+                    onClick={() => window.open(event.instagramUrl, '_blank')}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          
+
+          {/* Add more events card */}
+          {/* <motion.div
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="flex-none w-72 md:w-80 h-96 rounded-3xl border-2 border-dashed border-ice-white/30 flex flex-col items-center justify-center text-center p-4 md:p-6 cursor-pointer hover:border-ice-white/50 transition-all duration-300"
+          >
+            <div className="w-12 md:w-16 h-12 md:h-16 rounded-full bg-ice-white/10 backdrop-blur-sm flex items-center justify-center !mb-3 md:!mb-4">
+              <span className="text-xl md:text-2xl text-ice-white">+</span>
+            </div>
+            <h4 className="text-ice-white text-base md:text-lg font-light !mb-2">Altri Eventi</h4>
+            <p className="text-ice-white/60 text-sm font-light leading-relaxed">
+              Scopri tutti i nostri eventi passati e le esperienze vissute insieme
+            </p>
+          </motion.div> */}
+
         </motion.div>
         </div>
       </div>
