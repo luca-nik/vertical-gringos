@@ -1,13 +1,13 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Calendar, MapPin, Snowflake } from 'lucide-react'
+import { Calendar, MapPin } from 'lucide-react'
 import Image from 'next/image'
 import { useRef } from 'react'
 
 const SnowParticles = () => {
   // Pre-generate random values to avoid render impurity
-  const particles = Array.from({ length: 50 }, (_, i) => ({
+  const particles = Array.from({ length: 80 }, (_, i) => ({
     id: i,
     initialX: (i * 37 + 123) % 1200, // Pseudo-random based on index
     initialScale: 0.5 + ((i * 23 + 45) % 50) / 100,
@@ -71,15 +71,7 @@ const SkiSoundSection = () => {
           viewport={{ once: true }}
           className="text-center !mb-12 md:!mb-16 lg:!mb-20"
         >
-          <motion.div
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="inline-block !mb-4 md:!mb-6"
-          >
-            <Snowflake className="h-10 md:h-12 w-10 md:w-12 text-blue-400/60" />
-          </motion.div>
-          
-          <h2 className="font-display text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-light text-slate-900 !mb-4 md:!mb-6 tracking-widest uppercase text-center">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-light text-slate-100 !mt-10 !mb-4 md:!mb-6 tracking-widest uppercase text-center">
             Prossimo Evento
           </h2>
         </motion.div>
@@ -120,14 +112,17 @@ const SkiSoundSection = () => {
             </div>
 
             <div className="flex justify-center pt-10 md:pt-14 !mt-8">
-              <motion.button
+              <motion.a
+                href="https://ig.me/m/vertical_gringos"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="min-w-[240px] px-8 md:px-10 py-4 md:py-5 bg-slate-500 text-blue-100 rounded-full hover:bg-slate-800 text-sm font-bold tracking-[0.2em] uppercase border border-blue-400"
+                className="min-w-[280px] md:min-w-[320px] px-10 md:px-14 py-5 md:py-6 bg-slate-500 text-blue-100 rounded-full hover:bg-slate-800 text-base md:text-lg font-bold tracking-[0.2em] uppercase border border-blue-400 flex items-center justify-center"
               >
                 Prenota il tuo posto
-              </motion.button>
+              </motion.a>
             </div>
           </motion.div>
 
@@ -167,21 +162,7 @@ const SkiSoundSection = () => {
             </a>
 
             {/* Decorative Elements */}
-            <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-3 md:-top-4 -left-3 md:-left-4 w-6 md:w-8 h-6 md:h-8 text-blue-300/40"
-            >
-              <Snowflake className="w-full h-full" />
-            </motion.div>
             
-            <motion.div
-              animate={{ rotate: [360, 0] }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute -bottom-1.5 md:-bottom-2 -right-1.5 md:-right-2 w-5 md:w-6 h-5 md:h-6 text-blue-200/50"
-            >
-              <Snowflake className="w-full h-full" />
-            </motion.div>
           </motion.div>
         </div>
         </div>

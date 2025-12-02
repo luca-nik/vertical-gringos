@@ -42,8 +42,8 @@ const Hero = () => {
         </video>
         
         {/* Atmospheric Lighting Overlay (The "Vibe") */}
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight-blue/30 via-transparent to-midnight-blue/80 z-20" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-ice-white/5 via-transparent to-transparent opacity-40 z-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight-blue/30 via-transparent to-midnight-blue/80 z-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-ice-white/5 via-transparent to-transparent opacity-40 z-20 pointer-events-none" />
         
         {/* Texture Overlay (Grain) */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
@@ -105,14 +105,14 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 1.6 }}
-            className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center !mt-8 md:!mt-10 lg:!mt-2 w-full"
+            className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 justify-center !mt-16 md:!mt-10 lg:!mt-2 w-full"
           >
             {/* Button 1: Prossimo Evento */}
             <motion.a
               href="#ski-sound"
               whileHover={{ scale: 1.1, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative min-w-[200px] sm:min-w-[240px] px-6 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center"
+              className="group relative min-w-[270px] sm:min-w-[300px] px-9 md:px-10 py-7 bg-ice-white/20 backdrop-blur-xl border-2 border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center text-xl sm:text-lg md:text-sm"
             >
               <span className="relative z-10 text-sm font-bold tracking-[0.2em] uppercase">
                 Prossimo Evento
@@ -126,7 +126,7 @@ const Hero = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="group min-w-[200px] sm:min-w-[240px] px-6 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center"
+              className="hidden sm:flex group relative min-w-[270px] sm:min-w-[300px] px-9 md:px-10 py-7 bg-ice-white/20 backdrop-blur-xl border-2 border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 items-center justify-center text-lg sm:text-base md:text-sm"
             >
               <span className="text-sm font-bold tracking-[0.2em] uppercase">
                 Contattaci
@@ -141,7 +141,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 2.5 }}
-          className="absolute bottom-8 md:bottom-10 lg:bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer"
+          className="absolute !bottom-24 md:!bottom-20 lg:!bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
