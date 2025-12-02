@@ -93,19 +93,18 @@ const SkiSoundSection = () => {
             </div>
 
             <div className="space-y-4 md:space-y-6">
-              <div className="flex items-center space-x-3 md:space-x-4 text-slate-700">
+              <div className="flex items-center !space-x-4 md:!space-x-5 text-slate-700">
                 <Calendar className="h-5 md:h-6 w-5 md:w-6 text-blue-500" />
                 <span className="text-base md:text-lg text-blue-300"> 7 Dicembere 2025</span>
               </div>
 
-              <div className="flex items-center space-x-3 md:space-x-4 text-slate-700">
+              <div className="flex items-center !space-x-4 md:!space-x-5 text-slate-700">
                 <MapPin className="h-5 md:h-6 w-5 md:w-6 text-blue-500" />
                 <span className="text-base md:text-lg text-blue-300">Scuola di Sci Val di Luce, Abetone</span>
               </div>
             </div>
 
-            <div className="pt-8 md:pt-12">
-              <div className="w-24 md:w-32 h-px bg-slate-400/50 mx-auto !mb-6 md:!mb-8"></div>
+            <div className="!pt-10 md:!pt-8">
               <p className="text-base md:text-lg text-slate-100 max-w-2xl mx-auto font-light leading-relaxed">
                 L&apos;unico evento in Toscana che unisce sci freestyle e musica elettronica.
               </p>
