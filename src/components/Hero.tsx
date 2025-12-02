@@ -119,26 +119,30 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center mt-8 md:mt-10 lg:mt-12 w-full"
           >
             {/* Button 1: Prossimo Evento */}
-            <motion.button 
+            <motion.a
+              href="#ski-sound"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="group relative min-w-[240px] px-8 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500"
+              className="group relative min-w-[240px] px-8 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center"
             >
               <span className="relative z-10 text-sm font-bold tracking-[0.2em] uppercase">
                 Prossimo Evento
               </span>
-            </motion.button>
+            </motion.a>
 
-            {/* Button 2: Brand */}
-            <motion.button 
+            {/* Button 2: Contattaci */}
+            <motion.a
+              href="https://www.instagram.com/vertical_gringos/"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="group min-w-[240px] px-8 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500"
+              className="group min-w-[240px] px-8 md:px-10 py-4 md:py-5 bg-ice-white/20 backdrop-blur-xl border border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center"
             >
               <span className="text-sm font-bold tracking-[0.2em] uppercase">
-                Scopri il Brand
+                Contattaci
               </span>
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
 

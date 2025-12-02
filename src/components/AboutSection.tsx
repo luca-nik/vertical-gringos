@@ -31,13 +31,13 @@ const AboutSection = () => {
   const team = [
     {
       name: 'Luca',
-      role: 'Co-founder, Alpinist, Skier & Surfer',
+      role: 'Alpinist, Skier & Surfer',
       image: '/team/luca.jpg',
       description: ' '
     },
     {
       name: 'Francesco',
-      role: 'Co-founder, Alpinist, Sky Diver & Scuba Diver',
+      role: 'Alpinist, Sky Diver & Scuba Diver',
       image: '/team/france.jpg',
       description: ' '
     },
@@ -109,11 +109,11 @@ const AboutSection = () => {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           className="mb-16 md:mb-20 lg:mb-26"
         >
-          <h3 className="text-2xl md:text-3xl font-light text-ice-white text-center mb-16 md:mb-24 lg:mb-32">
+          <h3 className="text-2xl md:text-3xl font-light text-ice-white text-center pb-20 md:pb-28 lg:pb-36">
             I nostri valori
           </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-0">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}

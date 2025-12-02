@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const Navbar = () => {
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -50 }}
+      initial={{ opacity: 0, y: -50}}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-7xl"
@@ -18,7 +18,7 @@ const Navbar = () => {
           {/* --- LOGO / NOME BRAND A SINISTRA --- */}
           <div className="flex-shrink-0">
             <a href="#home" className="text-ice-white font-display font-bold tracking-[0.2em] text-lg uppercase hover:opacity-80 transition-opacity">
-              VERTICAL GRINGOS
+            
             </a>
           </div>
 

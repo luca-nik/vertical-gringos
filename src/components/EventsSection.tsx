@@ -13,56 +13,40 @@ const EventsSection = () => {
     {
       id: 'ski-and-sound',
       title: 'Ski and Sound',
-      subtitle: 'Winter Aesthetic Experience',
-      date: '15 Febbraio 2025',
-      location: 'Rifugio Alpino, Val di Fassa',
+      subtitle: 'sky Freestyle & Techno',
+      date: '7 Dicembre 2025',
+      location: 'Abetone',
       type: 'upcoming' as const,
       theme: 'winter' as const,
-      coverImage: 'https://source.unsplash.com/800x600/?skiing,snow,party',
+      coverImage: '/events/ski_sound.jpeg',
+      instagramUrl: 'https://www.instagram.com/p/DRsHtvIDDV6/',
       galleryImages: [
         'https://source.unsplash.com/800x600/?ski,alpine,music',
         'https://source.unsplash.com/800x601/?winter,party,mountain',
         'https://source.unsplash.com/800x602/?snow,dj,festival'
       ],
-      description: 'Un weekend che unisce sci alpino e musica elettronica in alta quota',
-      attendees: 50,
-      lineup: ['Aurora Electronics', 'Mountain Beats', 'Alpine Flow']
     },
     {
       id: 'rossi-autumn-mix',
       title: 'Rossi Autumn Mix',
       subtitle: 'Halloween nelle Apuane',
-      date: '1 Novembre 2024',
-      location: 'Rifugio E. Rossi',
+      date: '1 Novembre 2025',
+      location: 'Alpi Apuane',
       type: 'past' as const,
       theme: 'autumn' as const,
-      coverImage: 'https://source.unsplash.com/800x600/?rave,dj,sunset',
-      galleryImages: [
-        'https://source.unsplash.com/800x600/?halloween,party,mountain',
-        'https://source.unsplash.com/800x601/?autumn,festival,music',
-        'https://source.unsplash.com/800x602/?dj,crowd,outdoor',
-        'https://source.unsplash.com/800x603/?sunset,rave,nature'
-      ],
-      description: 'DJ set in quota con workshops di yoga e fotografia',
-      attendees: 185,
-      lineup: ['El Doganero', 'Local Artists']
+      coverImage: '/events/halloween2.jpg',
+      instagramUrl: 'https://www.instagram.com/p/DRA0zULjDdd/',
     },
     {
       id: 'summer-alpine-flow',
-      title: 'Alpine Summer Flow',
-      subtitle: 'Climbing & Chill Vibes',
-      date: '21 Luglio 2024',
-      location: 'Val di Mello',
+      title: 'Summer Mix',
+      subtitle: 'Climbing & Techno',
+      date: '14 Giugno 2025',
+      location: 'Alpi Apuane',
       type: 'past' as const,
       theme: 'summer' as const,
-      coverImage: 'https://source.unsplash.com/800x600/?climbing,music,alpine',
-      galleryImages: [
-        'https://source.unsplash.com/800x600/?rock,climbing,summer',
-        'https://source.unsplash.com/800x601/?alpine,party,nature'
-      ],
-      description: 'Arrampicata sportiva e musica ambient nelle Alpi',
-      attendees: 75,
-      lineup: ['Ambient Collective', 'Nature Sounds']
+      coverImage: '/events/summer1.jpg',
+      instagramUrl: 'https://www.instagram.com/p/DLIfW0csK4q/?img_index=1',
     }
   ]
 
@@ -108,14 +92,13 @@ const EventsSection = () => {
           className="mb-12 md:mb-16"
         >
           <div className="text-center mb-6 md:mb-8">
-            <h3 className="text-xl md:text-2xl font-light text-ice-white mb-2">Prossimo Evento</h3>
-            <p className="text-ice-white/60 font-light">L&apos;esperienza che ti aspetta</p>
+            <h3 className="text-xl md:text-2xl font-light text-ice-white mb-10">Prossimo Evento</h3>
           </div>
           
           <div className="max-w-2xl mx-auto">
-            <EventCard 
-              event={events[0]} 
-              onClick={() => console.log('Open event details')}
+            <EventCard
+              event={events[0]}
+              onClick={() => window.open(events[0].instagramUrl, '_blank')}
             />
           </div>
         </motion.div>
@@ -147,20 +130,20 @@ const EventsSection = () => {
 
           <div
             ref={scrollRef}
-            className="flex space-x-4 md:space-x-6 overflow-x-auto scrollbar-hide pb-4"
+            className="flex space-x-8 md:space-x-12 overflow-x-auto scrollbar-hide pb-4 justify-center"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {events.slice(1).map((event) => (
               <div key={event.id} className="flex-none w-72 md:w-80">
-                <EventCard 
-                  event={event} 
-                  onClick={() => console.log('Open event recap')}
+                <EventCard
+                  event={event}
+                  onClick={() => window.open(event.instagramUrl, '_blank')}
                 />
               </div>
             ))}
-            
+
             {/* Add more events card */}
-            <motion.div
+            {/* <motion.div
               whileHover={{ scale: 1.02, y: -5 }}
               className="flex-none w-72 md:w-80 h-96 rounded-3xl border-2 border-dashed border-ice-white/30 flex flex-col items-center justify-center text-center p-4 md:p-6 cursor-pointer hover:border-ice-white/50 transition-all duration-300"
             >
@@ -171,7 +154,7 @@ const EventsSection = () => {
               <p className="text-ice-white/60 text-sm font-light leading-relaxed">
                 Scopri tutti i nostri eventi passati e le esperienze vissute insieme
               </p>
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
         </div>

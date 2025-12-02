@@ -4,6 +4,7 @@ import SkiSoundSection from '@/components/SkiSoundSection'
 import AboutSection from '@/components/AboutSection'
 import EventsSection from '@/components/EventsSection'
 import BrandSection from '@/components/BrandSection'
+import ContactSection from '@/components/ContactSection'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <AboutSection />
       <EventsSection />
       {/*<BrandSection />*/}
+      <ContactSection />
     </div>
   );
 }

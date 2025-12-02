@@ -59,9 +59,7 @@ body::before {
 }
 
 /* Slow Motion Flow State Animations */
-* {
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
+/* Removed global wildcard transition - apply transitions selectively on components instead */
 
 /* Editorial Typography */
 h1, h2, h3, h4, h5, h6 {

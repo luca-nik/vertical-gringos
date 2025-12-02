@@ -16,9 +16,6 @@ interface EventCardProps {
     theme: 'winter' | 'autumn' | 'summer' | 'spring'
     coverImage: string
     galleryImages?: string[]
-    description: string
-    attendees?: number
-    lineup?: string[]
   }
   onClick?: () => void
 }
