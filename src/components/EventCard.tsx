@@ -100,7 +100,7 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
       <div className={`absolute inset-0 bg-gradient-to-t ${event.type === 'past' ? 'from-gray-900/30 via-gray-800/20 to-transparent' : 'from-slate-900/40 via-transparent to-transparent'} group-hover:opacity-90 transition-opacity duration-300`} />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-between !p-6 md:!p-8">
+      <div className="relative z-10 h-full flex flex-col !p-6 md:!p-8">
         {/* Header */}
         <div>
           <div className="flex items-center justify-between !mb-2 md:!mb-3">
@@ -127,7 +127,7 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
         </div>
 
         {/* Event Details */}
-        <div className="space-y-1.5 md:space-y-2">
+        <div className="space-y-1.5 md:space-y-2 !mt-auto !mb-4 md:!mb-4">
           <div className="flex items-center space-x-1.5 md:space-x-2 text-ice-white/80">
             <Calendar className="h-3.5 md:h-4 w-3.5 md:w-4" />
             <span className="text-xs md:text-sm">{event.date}</span>
