@@ -8,10 +8,13 @@ import { useRef, useState, useEffect } from 'react'
 const EventsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
+  const manualScrollRef = useRef(false)
+  const manualTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // Track scroll position for dots indicator (nearest card to center)
   useEffect(() => {
     const handleScroll = () => {
+      if (manualScrollRef.current) return
       const container = scrollRef.current
       if (container) {
         const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
@@ -37,6 +40,7 @@ const EventsSection = () => {
       handleScroll()
       return () => scrollElement.removeEventListener('scroll', handleScroll)
     }
+    return undefined
   }, [])
 
   // Sample events data based on existing repos
@@ -102,42 +106,42 @@ const EventsSection = () => {
     }
   ]
 
-  const getCardStride = () => {
+  const scrollToIndex = (index: number) => {
     const container = scrollRef.current
-    if (container) {
-      const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
-      if (cards.length > 0) {
-        const first = cards[0]
-        const second = cards[1]
-        const gap = second
-          ? second.offsetLeft - first.offsetLeft - first.offsetWidth
-          : 24
-        return first.offsetWidth + gap
-      }
-    }
-    return 320
+    if (!container) return
+    const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
+    const targetCard = cards[index]
+    if (!targetCard) return
+    const target =
+      targetCard.offsetLeft + targetCard.offsetWidth / 2 - container.clientWidth / 2
+    manualScrollRef.current = true
+    if (manualTimeoutRef.current) clearTimeout(manualTimeoutRef.current)
+    container.scrollTo({
+      left: Math.max(target, 0),
+      behavior: 'smooth'
+    })
+    setActiveIndex(index)
+    manualTimeoutRef.current = setTimeout(() => {
+      manualScrollRef.current = false
+    }, 600)
   }
 
   const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = getCardStride()
-      scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      })
-    }
-  }
-
-  // Center first card on mount for large screens
-  useEffect(() => {
     const container = scrollRef.current
     if (!container) return
     const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
     if (cards.length === 0) return
-    const first = cards[0]
-    const target = first.offsetLeft + first.offsetWidth / 2 - container.clientWidth / 2
-    container.scrollLeft = Math.max(target, 0)
-    setActiveIndex(0)
+    const nextIndex = direction === 'left' ? activeIndex - 1 : activeIndex + 1
+    const clamped = Math.max(0, Math.min(cards.length - 1, nextIndex))
+    scrollToIndex(clamped)
+  }
+
+  // Center first card on mount for large screens
+  useEffect(() => {
+    scrollToIndex(0)
+    return () => {
+      if (manualTimeoutRef.current) clearTimeout(manualTimeoutRef.current)
+    }
   }, [])
 
   return (
@@ -202,13 +206,7 @@ const EventsSection = () => {
                   onClick={() => {
                     const container = scrollRef.current
                     if (container) {
-                      const cards = Array.from(container.getElementsByClassName('event-card')) as HTMLElement[]
-                      const cardWidth = getCardStride()
-                      const startOffset = cards[0]?.offsetLeft ?? 0
-                      container.scrollTo({
-                        left: startOffset + index * cardWidth,
-                        behavior: 'smooth'
-                      })
+                      scrollToIndex(index)
                     }
                   }}
                   className={`w-2 h-2 rounded-full transition-colors duration-300 ${

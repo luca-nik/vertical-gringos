@@ -7,9 +7,9 @@ import { useEffect, useState } from 'react'
 const MissionSection = () => {
   const missionImages = [
     '/mission/mission1.jpg',
+    '/mission/mission2.jpg',
     '/mission/mission4.jpg',
-    '/mission/mission3.jpg',
-    '/mission/mission2.jpg'
+    '/mission/mission3.jpg'
   ]
   const [missionIndex, setMissionIndex] = useState(0)
 
@@ -79,23 +79,17 @@ const MissionSection = () => {
             className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center !mt-8 md:!mt-12"
           >
 
-            <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-ice-white/80">
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white !mb-4 md:!mb-6 tracking-tight leading-tight text-center lg:text-left">
+            <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-ice-white/80 order-1 lg:order-2">
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white !mb-4 md:!mb-6 tracking-tight leading-tight text-center lg:text-center">
                 La nostra missione
               </h3>
               
-              <p className="text-ice-white/90">
-                Creare esperienze uniche dove sport outdoor e musica si intrecciano e uniscono le persone.
-              </p>
-              <p className="text-ice-white/90">
-                Ogni evento è pensato per rispettare i luoghi che amiamo e le comunità che li vivono.
-              </p>
-              <p>
-                Dal ghiaccio alle cime estive, il nostro obiettivo è far vibrare chi partecipa, mantenendo autentico il legame con la montagna.
+              <p className="text-ice-white/90 text-left lg:text-right">
+               Creare esperienze uniche, dove sport outdoor e musica si intrecciano e uniscono le persone, nel rispetto dei luoghi e di chi li vive.
               </p>
             </div>
 
-            <div className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden">
+            <div className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden order-2 lg:order-1">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={missionImages[missionIndex]}
