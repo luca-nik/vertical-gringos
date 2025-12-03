@@ -43,7 +43,7 @@ const MissionSection = () => {
                   Music
                 </h2>
                 
-                <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-ice-white/80">
+                <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-ice-white/80 text-center lg:text-left">
                   <p className="text-ice-white/100 md:text-xl text-center">
                     La montagna ci insegna la fatica ed il rispetto.
                   </p>
@@ -52,15 +52,19 @@ const MissionSection = () => {
                     La musica ci dà la liberazione e connessione.
                   </p>
                   <div className="h-8"></div>
-                  <p>
-                    <strong className="text-ice-white">Vertical Gringos</strong> nasce per unire questi due mondi.
-                    
+                  <p className="text-center lg:text-left">
+                    <strong className="text-ice-white">Vertical Gringos</strong> nasce per questo. 
                   </p>
-                  <p className="text-ice-white">Creare momenti unici di comunità, dove la passione per l&apos;outdoor ed il rispetto
-                    per i luoghi si fondono con l&apos;energia della musica elettronica.
-                  </p>
-                </div>
-              </div>
+                  <p className="text-ice-white/90 text-center lg:text-left">
+                  Niente comfort da club, niente scarpe pulite.
+                  </p>              
+                  <div className="h-8"></div>
+                  <p className="text-ice-white/90 text-center lg:text-left">
+                  Si arriva con gli scarponi, si rimane per l&apos;azione ed il sound.
+                  Si torna per la community. 
+                  </p>              
+                    </div>
+                  </div>
 
               <div className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden">
                 <video
@@ -84,31 +88,21 @@ const MissionSection = () => {
             className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center !mt-8 md:!mt-12"
           >
 
-            <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-ice-white/80 order-1 lg:order-2">
+            <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-ice-white/80 text-center lg:text-left order-1 lg:order-2">
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white !mb-4 md:!mb-6 tracking-tight leading-tight text-center lg:text-center">
                 La nostra missione
               </h3>
               
-              <p className="text-ice-white/90 text-left lg:text-center italic">
+              <p className="text-ice-white/90 text-center lg:text-center italic">
               Vogliamo dimostrare che la montagna si può celebrare, non consumare.
               </p>
               {/*<p className="text-ice-white/90 text-left lg:text-left">*/}
               {/*Non organizziamo solo eventi. <strong>Creiamo un movimento</strong>.*/}
               {/*</p>*/}
-              <div className="h-3"></div>
-              <p className="text-ice-white/90 text-left lg:text-left">
-              Niente comfort da club, niente scarpe pulite.
-              </p>              
-              <p className="text-ice-white/90 text-left lg:text-left">
-              Si arriva con gli scarponi, si rimane per l&apos;azione ed il sound.
-              </p>              
-              <p className="text-ice-white/90 text-left lg:text-left">
-              Si torna per la community. 
-              </p>              
-              <div className="h-2"></div>
-              <p className="text-ice-white/90 text-left lg:text-left">
-              Balliamo dove gli altri nemmeno arrivano, lasciando solo le nostre impronte.
+              <p className="text-ice-white text-center lg:text-left">Creare momenti unici di comunità, dove la passione per l&apos;outdoor ed il rispetto
+                per i luoghi si fondono con l&apos;energia della musica elettronica.
               </p>
+
             </div>
 
             <div className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden order-2 lg:order-1">
