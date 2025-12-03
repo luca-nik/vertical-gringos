@@ -92,15 +92,20 @@ const MissionSection = () => {
               <p className="text-ice-white/90 text-left lg:text-center italic">
               Vogliamo dimostrare che la montagna si può celebrare, non consumare.
               </p>
+              {/*<p className="text-ice-white/90 text-left lg:text-left">*/}
+              {/*Non organizziamo solo eventi. <strong>Creiamo un movimento</strong>.*/}
+              {/*</p>*/}
               <div className="h-3"></div>
               <p className="text-ice-white/90 text-left lg:text-left">
-              Non organizziamo solo eventi. <strong>Creiamo un movimento</strong>.
-              </p>
-              <div className="h-3"></div>
-              <p className="text-ice-white/90 text-left lg:text-left">
-              Niente comfort da club, niente scarpe pulite. Qui l'esperienza te la devi guadagnare con la salita. 
-              Si arriva con gli scarponi, si rimane per l&apos;azione, ci si accende con il sound e si torna per la community. 
+              Niente comfort da club, niente scarpe pulite.
               </p>              
+              <p className="text-ice-white/90 text-left lg:text-left">
+              Si arriva con gli scarponi, si rimane per l&apos;azione ed il sound.
+              </p>              
+              <p className="text-ice-white/90 text-left lg:text-left">
+              Si torna per la community. 
+              </p>              
+              <div className="h-2"></div>
               <p className="text-ice-white/90 text-left lg:text-left">
               Balliamo dove gli altri nemmeno arrivano, lasciando solo le nostre impronte.
               </p>
