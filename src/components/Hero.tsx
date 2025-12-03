@@ -78,7 +78,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
-            className="font-display text-4xl md:text-6xl lg:text-8xl font-medium text-[#F6B21A] !mb-5 md:!mb-7 lg:!mb-8 tracking-widest uppercase leading-tight drop-shadow-xl"
+            className="font-display text-3xl md:text-5xl lg:text-7xl font-medium text-[#F6B21A] !mb-4 md:!mb-6 lg:!mb-6 tracking-widest uppercase leading-tight drop-shadow-xl"
           >
             AESTHETIC ALPINISM
             <br />
@@ -91,7 +91,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
-            className="text-lg md:text-2xl text-[#F6B21A] !mb-6 md:!mb-8 lg:!mb-4 font-light tracking-wide max-w-xl mx-auto"
+            className="text-base md:text-xl text-[#F6B21A] !mb-6 md:!mb-7 lg:!mb-4 font-light tracking-wide max-w-xl mx-auto"
           >
             For those who breathe the outdoors 
             <span className="hidden md:inline">  </span> 
@@ -99,13 +99,13 @@ const Hero = () => {
             and live the electronic vibe.
           </motion.p>
 
-          <div className="h-10 lg:!h-2 w-full" />
+          <div className="h-6 lg:!h-2 w-full" />
           {/* Magnetic Buttons Container */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 1.6 }}
-            className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 justify-center !mt-16 md:!mt-10 lg:!mt-2 w-full"
+            className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 justify-center !mt-12 md:!mt-8 lg:!mt-4 w-full"
           >
             {/* Button 1: Prossimo Evento */}
             <motion.a
@@ -141,7 +141,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 2.5 }}
-          className="absolute !bottom-24 md:!bottom-20 lg:!bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer"
+          className="absolute !bottom-20 md:!bottom-16 lg:!bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}

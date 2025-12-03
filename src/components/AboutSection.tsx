@@ -51,18 +51,18 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center !mb-16 md:!mb-25 lg:!mb-30"
+          className="text-center !mb-8 md:!mb-10 lg:!mb-10 !mt-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white tracking-tight leading-tight">
-            Vertical Gringos
-          </h2>
-          <div className="!mt-10 md:!mt-12 flex justify-center">
-            <div className="relative w-full max-w-3xl h-72 md:h-80 lg:h-[36rem] rounded-3xl overflow-hidden">
+          <div className="flex flex-col items-center gap-4 md:gap-5">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-ice-white tracking-tight leading-tight">
+              We Are Vertical Gringos
+            </h2>
+            <div className="relative h-20 w-20 md:h-22 md:w-22 lg:h-24 lg:w-24 rounded-full bg-white/10 p-2">
               <Image
-                src="/team/team-gringos-noi.jpg"
-                alt="Vertical Gringos team"
+                src="/images/vertical-logo-small-circle.png"
+                alt="Vertical Gringos logo"
                 fill
-                className="object-cover"
+                className="object-contain"
                 priority
               />
             </div>

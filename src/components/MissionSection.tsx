@@ -60,13 +60,16 @@ const MissionSection = () => {
               </div>
 
               <div className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden">
-                <Image
-                  src="/team/team-gringos.jpg"
-                  alt="Team Vertical Gringos in montagna"
-                  fill
-                  className="object-cover"
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src="/videos/video-evento.mov"
+                  poster="/mission/mission1.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
               </div>
             </div>
           </motion.div>
