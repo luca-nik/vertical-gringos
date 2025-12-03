@@ -18,9 +18,10 @@ interface EventCardProps {
     galleryImages?: string[]
   }
   onClick?: () => void
+  carouselDelayMs?: number
 }
 
-const EventCard = ({ event, onClick }: EventCardProps) => {
+const EventCard = ({ event, onClick, carouselDelayMs = 0 }: EventCardProps) => {
   const [isHovered, setIsHovered] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
@@ -30,14 +31,24 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
   // Auto-rotate through all images every 3 seconds
   useEffect(() => {
     if (allImages.length > 1) {
-      const interval = setInterval(() => {
+      let interval: ReturnType<typeof setInterval> | null = null
+      const firstRotation = setTimeout(() => {
         setCurrentImageIndex(prev =>
           prev === allImages.length - 1 ? 0 : prev + 1
         )
-      }, 3000)
-      return () => clearInterval(interval)
+        interval = setInterval(() => {
+          setCurrentImageIndex(prev =>
+            prev === allImages.length - 1 ? 0 : prev + 1
+          )
+        }, 3000)
+      }, 3000 + carouselDelayMs)
+
+      return () => {
+        clearTimeout(firstRotation)
+        if (interval) clearInterval(interval)
+      }
     }
-  }, [allImages.length])
+  }, [allImages.length, carouselDelayMs])
 
   const themeColors = {
     winter: {

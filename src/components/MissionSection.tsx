@@ -37,7 +37,7 @@ const MissionSection = () => {
                   Outdoor
                 </h2>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white !mb-2 md:!mb-2 tracking-tight leading-tight ml-5 text-center">
-                  &
+                  Action
                 </h2>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white !mb-6 md:!mb-8 tracking-tight leading-tight ml-5 text-center">
                   Music
@@ -98,7 +98,7 @@ const MissionSection = () => {
               </p>
               <div className="h-3"></div>
               <p className="text-ice-white/90 text-left lg:text-left">
-              Niente comfort da club, niente scarpe pulite. Qui l'esperienza te la devi guadagnare e la musica ha tutto un altro sapore dopo la salita. 
+              Niente comfort da club, niente scarpe pulite. Qui l'esperienza te la devi guadagnare con la salita. 
               Si arriva con gli scarponi, si rimane per l&apos;azione, ci si accende con il sound e si torna per la community. 
               </p>              
               <p className="text-ice-white/90 text-left lg:text-left">

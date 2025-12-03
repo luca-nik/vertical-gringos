@@ -262,6 +262,7 @@ const EventsSection = () => {
                   >
                     <EventCard
                       event={event}
+                      carouselDelayMs={index * 500}
                       onClick={() => window.open(event.instagramUrl, '_blank')}
                     />
                   </div>
