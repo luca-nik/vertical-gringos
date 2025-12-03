@@ -62,8 +62,7 @@ const MissionSection = () => {
               <div className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden">
                 <video
                   className="absolute inset-0 w-full h-full object-cover"
-                  src="/videos/video-evento.mov"
-                  poster="/mission/mission1.jpg"
+                  src="/videos/video-evento.mp4"
                   autoPlay
                   loop
                   muted
