@@ -92,13 +92,13 @@ const MissionSection = () => {
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-light text-ice-white !mb-4 md:!mb-6 tracking-tight leading-tight text-center lg:text-center">
                 La nostra missione
               </h3>
-              
               <p className="text-ice-white/90 text-center lg:text-center italic">
               Vogliamo dimostrare che la montagna si può celebrare, non consumare.
               </p>
               {/*<p className="text-ice-white/90 text-left lg:text-left">*/}
               {/*Non organizziamo solo eventi. <strong>Creiamo un movimento</strong>.*/}
               {/*</p>*/}
+              <div className="h-8"></div>
               <p className="text-ice-white text-center lg:text-left">Creare momenti unici di comunità, dove la passione per l&apos;outdoor ed il rispetto
                 per i luoghi si fondono con l&apos;energia della musica elettronica.
               </p>
