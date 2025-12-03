@@ -44,17 +44,20 @@ const MissionSection = () => {
                 </h2>
                 
                 <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-ice-white/80">
-                  <p className="text-ice-white/90">
-                    Tutto è iniziato con una semplice domanda.
+                  <p className="text-ice-white/100 md:text-xl text-center">
+                    La montagna ci insegna la fatica ed il rispetto.
                   </p>
-                  <p className="text-ice-white/100 italic md:text-xl">
-                    Perché non portare i ritmi che ci muovono nelle montagne che amiamo?
+                  <div className="h-1"></div>
+                  <p className="text-ice-white/100 md:text-xl text-center">
+                    La musica ci dà la liberazione e connessione.
                   </p>
-                  <div className="h-2"></div>
+                  <div className="h-8"></div>
                   <p>
-                    <strong className="text-ice-white">Vertical Gringos</strong> nasce dal desiderio di
-                    creare esperienze in cui sport outdoor e musica si intrecciano e uniscono le persone,
-                    nel rispetto dei luoghi e di chi li vive.
+                    <strong className="text-ice-white">Vertical Gringos</strong> nasce per unire questi due mondi.
+                    
+                  </p>
+                  <p className="text-ice-white">Creare momenti unici di comunità, dove la passione per l&apos;outdoor ed il rispetto
+                    per i luoghi si fondono con l&apos;energia della musica elettronica.
                   </p>
                 </div>
               </div>
@@ -86,8 +89,20 @@ const MissionSection = () => {
                 La nostra missione
               </h3>
               
-              <p className="text-ice-white/90 text-left lg:text-right">
-               Creare esperienze uniche, dove sport outdoor e musica si intrecciano e uniscono le persone, nel rispetto dei luoghi e di chi li vive.
+              <p className="text-ice-white/90 text-left lg:text-center italic">
+              Vogliamo dimostrare che la montagna si può celebrare, non consumare.
+              </p>
+              <div className="h-3"></div>
+              <p className="text-ice-white/90 text-left lg:text-left">
+              Non organizziamo solo eventi. <strong>Creiamo un movimento</strong>.
+              </p>
+              <div className="h-3"></div>
+              <p className="text-ice-white/90 text-left lg:text-left">
+              Niente comfort da club, niente scarpe pulite. Qui l'esperienza te la devi guadagnare e la musica ha tutto un altro sapore dopo la salita. 
+              Si arriva con gli scarponi, si rimane per l&apos;azione, ci si accende con il sound e si torna per la community. 
+              </p>              
+              <p className="text-ice-white/90 text-left lg:text-left">
+              Balliamo dove gli altri nemmeno arrivano, lasciando solo le nostre impronte.
               </p>
             </div>
 
