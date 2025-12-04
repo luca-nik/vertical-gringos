@@ -80,10 +80,10 @@ const Hero = () => {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
             className="font-display text-3xl md:text-5xl lg:text-7xl font-medium text-[#F6B21A] !mb-4 md:!mb-6 lg:!mb-6 tracking-widest uppercase leading-tight drop-shadow-xl"
           >
-            AESTHETIC ALPINISM
+            OFF THE GRID
             <br />
             <span className="text-ice-white/60 font-light block !mt-2">
-            MEETS ELECTRONIC MUSIC
+            ON THE BEAT
             </span>
           </motion.h1>
 
