@@ -56,23 +56,13 @@ const MissionSection = () => {
                     <strong className="text-ice-white">Vertical Gringos</strong> nasce per questo. 
                   </p>
                   <p className="text-ice-white/90 text-center lg:text-left">
-                    Niente comfort da club, niente scarpe pulite.
-                  </p>
+                  Niente comfort da club, niente scarpe pulite.
+                  </p>              
                   <div className="h-8"></div>
                   <p className="text-ice-white/90 text-center lg:text-left">
-                    Si arriva con gli scarponi, si rimane per l&apos;azione ed il sound.
-                    Si torna per la community. 
+                  Si arriva con gli scarponi, si rimane per l&apos;azione ed il sound.
+                  Si torna per la community. 
                   </p>
-                  <div className="flex justify-center lg:justify-start !mt-6">
-                    <Image
-                      src="/images/raven.svg"
-                      alt="Raven illustration"
-                      width={220}
-                      height={220}
-                      className="opacity-90"
-                      priority
-                    />
-                  </div>
                 </div>
               </div>
 
@@ -110,8 +100,8 @@ const MissionSection = () => {
               {/*</p>*/}
               <div className="h-8"></div>
               <p className="text-ice-white text-center lg:text-left">
-                Momenti unici di comunità, dove la passione per l&apos;outdoor ed il rispetto per i luoghi
-                si fondono con l&apos;energia della musica elettronica.
+                Creare momenti unici di comunità, dove la passione per l&apos;outdoor ed il rispetto
+                per i luoghi si fondono con l&apos;energia della musica elettronica.
               </p>
 
             </div>
