@@ -18,11 +18,11 @@ const EventsSection = () => {
       subtitle: 'Ski Freestyle & Techno',
       date: '7 Dicembre 2025',
       location: 'Abetone',
-      type: 'upcoming' as const,
+      type: 'past' as const,
       theme: 'winter' as const,
-      coverImage: '/events/ski_sound.jpeg',
-      instagramUrl: 'https://www.instagram.com/p/DRsHtvIDDV6/',
-      galleryImages: []
+      coverImage: '/events/ski2.jpg',
+      instagramUrl: 'https://www.instagram.com/p/DSIdQYjjCkd/?img_index=1',
+      galleryImages: ['/events/ski1.jpeg', '/events/ski3.jpg', '/events/ski5.jpeg']
     },
     {
       id: 'rossi-autumn-mix',
@@ -61,6 +61,9 @@ const EventsSection = () => {
       galleryImages: ['/events/vecchiano2.jpg', '/events/vecchiano3.jpg']
     }
   ]
+
+  const upcomingEvents = events.filter((event) => event.type === 'upcoming' && event.visible !== false)
+  const pastEvents = events.filter((event) => event.type === 'past' && event.visible !== false)
 
   const scrollToIndex = (index: number) => {
     const container = scrollRef.current
@@ -181,25 +184,27 @@ const EventsSection = () => {
         </motion.div>
 
         {/* Featured Event - Next Upcoming */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="!mb-12 md:!mb-16"
-        >
-          <div className="text-center !mb-6 md:!mb-8">
-            <h3 className="text-xl md:text-2xl font-light text-ice-white !mb-10">Prossimo Evento</h3>
-          </div>
-          
-          <div className="flex justify-center w-full">
-            <div className="w-full max-w-md mx-auto">
-            <EventCard
-              event={events[0]}
-              onClick={() => window.open(events[0].instagramUrl, '_blank')}
-            />
+        {upcomingEvents.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="!mb-12 md:!mb-16"
+          >
+            <div className="text-center !mb-6 md:!mb-8">
+              <h3 className="text-xl md:text-2xl font-light text-ice-white !mb-10">Prossimo Evento</h3>
             </div>
-          </div>
-        </motion.div>
+            
+            <div className="flex justify-center w-full">
+              <div className="w-full max-w-md mx-auto">
+              <EventCard
+                event={upcomingEvents[0]}
+                onClick={() => window.open(upcomingEvents[0].instagramUrl, '_blank')}
+              />
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         {/* Past Events Horizontal Scroll */}
         <motion.div
@@ -213,7 +218,7 @@ const EventsSection = () => {
             
             {/* Carousel dots for mobile - top right */}
             <div className="flex space-x-2 sm:hidden">
-              {events.slice(1).map((_, index) => (
+              {pastEvents.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => scrollToIndex(index)}
@@ -251,7 +256,7 @@ const EventsSection = () => {
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
                 <div className="flex-none w-0 sm:w-6 md:w-16 lg:w-40" aria-hidden />
-                {events.slice(1).map((event, index) => (
+                {pastEvents.map((event, index) => (
                   <div
                     key={event.id}
                     className={`event-card flex-none snap-center transition-all duration-500 ${

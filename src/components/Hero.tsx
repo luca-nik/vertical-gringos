@@ -107,15 +107,15 @@ const Hero = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 1.6 }}
             className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 justify-center !mt-12 md:!mt-8 lg:!mt-4 w-full"
           >
-            {/* Button 1: Prossimo Evento */}
+            {/* Button 1: Eventi */}
             <motion.a
-              href="#ski-sound"
+              href="#eventi"
               whileHover={{ scale: 1.1, y: -5 }}
               whileTap={{ scale: 0.95 }}
               className="group relative min-w-[270px] sm:min-w-[300px] px-9 md:px-10 py-7 bg-ice-white/20 backdrop-blur-xl border-2 border-[#F6B21A] rounded-full text-ice-white hover:bg-ice-white/20 transition-all duration-500 flex items-center justify-center text-xl sm:text-lg md:text-sm"
             >
               <span className="relative z-10 text-sm font-bold tracking-[0.2em] uppercase">
-                Prossimo Evento
+                Eventi
               </span>
             </motion.a>
 
