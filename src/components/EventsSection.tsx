@@ -62,8 +62,7 @@ const EventsSection = () => {
     }
   ]
 
-  const upcomingEvents = events.filter((event) => event.type === 'upcoming' && event.visible !== false)
-  const pastEvents = events.filter((event) => event.type === 'past' && event.visible !== false)
+  const pastEvents = events.filter((event) => event.type === 'past')
 
   const scrollToIndex = (index: number) => {
     const container = scrollRef.current
@@ -183,28 +182,6 @@ const EventsSection = () => {
           <div className="w-24 md:w-32 h-px bg-ice-white/30 !mb-6 md:!mb-8"></div>
         </motion.div>
 
-        {/* Featured Event - Next Upcoming */}
-        {upcomingEvents.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="!mb-12 md:!mb-16"
-          >
-            <div className="text-center !mb-6 md:!mb-8">
-              <h3 className="text-xl md:text-2xl font-light text-ice-white !mb-10">Prossimo Evento</h3>
-            </div>
-            
-            <div className="flex justify-center w-full">
-              <div className="w-full max-w-md mx-auto">
-              <EventCard
-                event={upcomingEvents[0]}
-                onClick={() => window.open(upcomingEvents[0].instagramUrl, '_blank')}
-              />
-              </div>
-            </div>
-          </motion.div>
-        )}
 
         {/* Past Events Horizontal Scroll */}
         <motion.div
