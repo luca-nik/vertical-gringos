@@ -43,24 +43,6 @@ const AboutSection = () => {
     },
   ]
 
-  const crew = [
-    {
-      name: 'Marco',
-      role: 'Visual artist & stage design'
-    },
-    {
-      name: 'Sara',
-      role: 'Photo & content'
-    },
-    {
-      name: 'Giulia',
-      role: 'Logistics & community'
-    },
-    {
-      name: 'Alessandro',
-      role: 'DJ support'
-    }
-  ]
 
   return (
     <section id="chi-siamo" className="!py-16 md:py-16 lg:py-20 w-full">
@@ -164,37 +146,6 @@ const AboutSection = () => {
             </div>
           </div>
 
-          <div className="!mt-12 md:!mt-14 lg:!mt-16">
-            <h4 className="text-xl md:text-2xl font-light text-ice-white text-center !mb-6 md:!mb-8">
-              Crew
-            </h4>
-            <div className="flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-5xl">
-                {crew.map((member, index) => (
-                  <motion.div
-                    key={member.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-                    className="relative rounded-2xl bg-gradient-to-br from-amber-500/15 via-pink-500/10 to-indigo-500/20 border border-white/10 p-5 backdrop-blur-sm shadow-lg"
-                  >
-                    <div className="flex items-center gap-4 !mb-3">
-                      <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-ice-white font-semibold text-lg">
-                        {member.name.charAt(0)}
-                      </div>
-                      <div>
-                        <h5 className="text-ice-white text-base md:text-lg font-medium">{member.name}</h5>
-                        <p className="text-ice-white/70 text-sm font-light">{member.role}</p>
-                      </div>
-                    </div>
-                    <p className="text-ice-white/60 text-sm font-light leading-relaxed">
-                      Essenziali per rendere ogni evento più fluido e pieno di energia.
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
         </motion.div>
 
         </div>
